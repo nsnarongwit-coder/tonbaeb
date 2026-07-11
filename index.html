@@ -93,20 +93,32 @@ section{padding:56px 0}
 .sec-head h2{font-size:clamp(24px,3vw,32px);font-weight:700}
 .sec-head p{color:var(--muted);margin-top:6px;max-width:44em}
 
-/* product-type chips */
-.typechips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
-.typechip{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
-.typechip.active{background:var(--accent-soft);border-color:var(--accent);color:var(--text);font-weight:600}
-.typechip .soon{font-size:11.5px;background:var(--panel2);color:var(--gold);border-radius:6px;padding:1px 7px;font-weight:600}
-
-/* folder tabs */
-.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:0}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;background:var(--panel);border:1px solid var(--line);border-bottom:none;color:var(--muted);
-  padding:11px 20px 9px;border-radius:12px 12px 0 0;cursor:pointer;font-weight:600;font-size:15px;position:relative;top:1px}
-.tab .n{color:var(--gold);font-size:12.5px;margin-left:6px}
-.tab.active{background:var(--panel2);color:var(--text);border-color:var(--accent);border-bottom:1px solid var(--panel2)}
-.catbody{background:var(--panel2);border:1px solid var(--accent);border-top:none;border-radius:0 var(--radius) var(--radius) var(--radius);padding:22px}
+/* ===== catalog layout: sidebar + content ===== */
+.catwrap{display:grid;grid-template-columns:290px 1fr;gap:20px;align-items:start}
+.sidenav{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:10px;position:sticky;top:80px}
+.sidenav details{border-bottom:1px solid var(--line)}
+.sidenav details:last-child{border-bottom:none}
+.sidenav summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 10px;font-family:'Prompt';font-weight:600;font-size:15.5px;color:var(--text)}
+.sidenav summary::-webkit-details-marker{display:none}
+.sidenav summary .caret{margin-left:auto;color:var(--gold);transition:transform .15s;font-size:13px}
+.sidenav details[open] summary .caret{transform:rotate(90deg)}
+.sidenav summary .cnt{color:var(--gold);font-size:12.5px;font-weight:600}
+.sidenav summary .soon{font-size:11px;background:var(--panel);color:var(--gold);border-radius:6px;padding:1px 7px;margin-left:auto}
+.sidenav summary.disabled{color:var(--muted);cursor:default}
+.biznav{display:flex;flex-direction:column;padding:2px 4px 10px}
+.biznav button{display:flex;align-items:center;gap:8px;text-align:left;background:none;border:0;border-left:2px solid transparent;color:var(--muted);
+  font-family:'Sarabun';font-size:14.5px;padding:8px 10px;cursor:pointer;border-radius:0 8px 8px 0;line-height:1.4}
+.biznav button:hover{color:var(--text);background:rgba(76,141,255,.06)}
+.biznav button.active{color:var(--text);font-weight:600;border-left-color:var(--gold);background:var(--accent-soft)}
+.biznav button .n{margin-left:auto;color:var(--gold);font-size:12px;font-family:'Prompt'}
+@media(max-width:900px){
+  .catwrap{grid-template-columns:1fr}
+  .sidenav{position:static}
+  .biznav{flex-direction:row;flex-wrap:wrap;gap:8px;padding:4px 6px 12px}
+  .biznav button{border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+  .biznav button.active{border-color:var(--gold)}
+  .biznav button .n{margin-left:4px}
+}
 
 .toolrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
 .search{flex:1 1 260px;display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
@@ -267,8 +279,8 @@ footer b{color:var(--text);font-family:'Prompt'}
         <h2>เลือกซื้อไฟล์</h2>
         <p>เปิดขายหมวด "ใบประเมินผลงานประจำปี" ครอบคลุม 12 กลุ่มธุรกิจ กว่า 550 ตำแหน่งงาน — หมวดอื่นกำลังตามมาเร็ว ๆ นี้</p>
       </div>
-      <div class="typechips" id="typechips"></div>
-      <div class="tabs" id="bizTabs" role="tablist" aria-label="เลือกประเภทธุรกิจ"></div>
+      <div class="catwrap">
+      <aside class="sidenav" id="sideNav" aria-label="หมวดสินค้า"></aside>
       <div class="catbody">
         <div class="toolrow">
           <div class="search"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="ค้นหาชื่อตำแหน่ง เช่น บัญชี, ทรัพยากรบุคคล, สินไหม…" aria-label="ค้นหาตำแหน่ง"></div>
@@ -276,6 +288,7 @@ footer b{color:var(--text);font-family:'Prompt'}
         </div>
         <div class="resultnote" id="resultNote"></div>
         <div class="grid" id="grid"></div>
+      </div>
       </div>
     </div>
   </section>
@@ -2954,15 +2967,17 @@ function renderQR(el, payload){
 function $(id){ return document.getElementById(id); }
 function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-function renderTypeChips(){
-  var h = '<span class="typechip active">ใบประเมินผลงานประจำปี <b style="color:var(--gold)">'+ALL.length+' ไฟล์</b></span>';
-  UPCOMING_TYPES.forEach(function(t){ h += '<span class="typechip">'+esc(t)+' <span class="soon">เร็วๆ นี้</span></span>'; });
-  $("typechips").innerHTML = h;
-}
-function renderTabs(){
-  $("bizTabs").innerHTML = BUSINESSES.map(function(b){
-    return '<button class="tab'+(b.id===state.biz?" active":"")+'" role="tab" aria-selected="'+(b.id===state.biz)+'" data-biz="'+b.id+'">'+esc(b.name)+'<span class="n">'+b.items.length+'</span></button>';
+function renderSideNav(){
+  var bizHtml = BUSINESSES.map(function(b){
+    return '<button data-biz="'+b.id+'"'+(b.id===state.biz?' class="active"':'')+'>'+esc(b.name)+'<span class="n">'+b.items.length+'</span></button>';
   }).join("");
+  var h = '<details open><summary>ใบประเมินผลงานประจำปี<span class="cnt">'+ALL.length+' ไฟล์</span><span class="caret">&#9656;</span></summary>'
+        + '<nav class="biznav">'+bizHtml+'</nav></details>';
+  UPCOMING_TYPES.forEach(function(t){
+    h += '<details><summary class="disabled">'+esc(t)+'<span class="soon">เร็วๆ นี้</span></summary>'
+       + '<div style="padding:0 10px 12px;color:var(--muted);font-size:13.5px">กำลังทยอยเปิด แจ้งความสนใจล่วงหน้าได้ทาง LINE</div></details>';
+  });
+  $("sideNav").innerHTML = h;
 }
 function renderLvl(){
   var lv=[["","ทุกระดับ"],["L1","บริหาร/จัดการ"],["L2","หัวหน้างาน"],["L3","ปฏิบัติการ"]];
@@ -3089,7 +3104,7 @@ function closeDrawer(){ $("drawer").classList.remove("show"); $("scrim").classLi
 document.addEventListener("click",function(e){
   var t=e.target.closest("[data-sku]"); if(t){ addToCart(t.getAttribute("data-sku")); return; }
   t=e.target.closest("[data-rm]"); if(t){ cart=cart.filter(function(s){return s!==t.getAttribute("data-rm");}); saveCart(); renderCart(); renderGrid(); return; }
-  t=e.target.closest("[data-biz]"); if(t){ state.biz=t.getAttribute("data-biz"); renderTabs(); renderGrid(); return; }
+  t=e.target.closest("[data-biz]"); if(t){ state.biz=t.getAttribute("data-biz"); renderSideNav(); renderGrid(); document.getElementById("catalog").scrollIntoView({behavior:"smooth",block:"start"}); return; }
   t=e.target.closest("[data-lvl]"); if(t!==null && t){ state.lvl=t.getAttribute("data-lvl"); renderLvl(); renderGrid(); return; }
 });
 $("q").addEventListener("input",function(){ state.q=this.value; renderGrid(); });
@@ -3103,7 +3118,7 @@ $("copyOrder").addEventListener("click",copyOrder);
 document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ $("modal").classList.remove("show"); closeDrawer(); }});
 
 // init
-renderTypeChips(); renderTabs(); renderLvl(); renderGrid(); renderSoon(); renderCart();
+renderSideNav(); renderLvl(); renderGrid(); renderSoon(); renderCart();
 
 // expose for tests
 window.__TB = { ALL:ALL, unitPrice:unitPrice, total:total, promptpayPayload:promptpayPayload, crc16:crc16, orderText:orderText, cart:cart, addToCart:addToCart, visibleItems:visibleItems, state:state };
