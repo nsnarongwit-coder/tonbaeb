@@ -241,7 +241,7 @@ footer b{color:var(--text);font-family:'Prompt'}
   <div class="wrap hero">
     <div>
       <span class="eyebrow">คลังต้นแบบเอกสารคนทำงาน</span>
-      <h1>ใบประเมินผลงานประจำปี <em>รายตำแหน่ง</em><br>เลือกตามธุรกิจ พร้อมใช้ทันที</h1>
+      <h1>ใบประเมินผลงานและใบประเมินทดลองงาน <em>รายตำแหน่ง</em> เลือกตามธุรกิจ พร้อมใช้ทันที</h1>
       <p class="lead">ไฟล์ Excel แก้ไขได้ ออกแบบ KPI และหัวข้อประเมินเฉพาะของแต่ละตำแหน่งจริง ไม่ใช่ฟอร์มกลางที่ใช้เหมือนกันทั้งบริษัท — จัดทำโดยที่ปรึกษา HR ประสบการณ์กว่า 30 ปี</p>
       <div class="cta">
         <a class="btn btn-primary" href="#catalog">เลือกดูไฟล์ทั้งหมด</a>
@@ -277,7 +277,7 @@ footer b{color:var(--text);font-family:'Prompt'}
     <div class="wrap">
       <div class="sec-head">
         <h2>เลือกซื้อไฟล์</h2>
-        <p>เปิดขายหมวด "ใบประเมินผลงานประจำปี" ครอบคลุม 12 กลุ่มธุรกิจ กว่า 550 ตำแหน่งงาน — หมวดอื่นกำลังตามมาเร็ว ๆ นี้</p>
+        <p>เปิดขายแล้ว 2 หมวด: ใบประเมินผลงานประจำปี (12 กลุ่มธุรกิจ) และใบประเมินผลทดลองงาน (ห้างสรรพสินค้า โรงแรม โรงพยาบาลเอกชน โรงงานชิ้นส่วนรถยนต์) — หมวดอื่นกำลังตามมาเร็ว ๆ นี้</p>
       </div>
       <div class="catwrap">
       <aside class="sidenav" id="sideNav" aria-label="หมวดสินค้า"></aside>
@@ -322,7 +322,7 @@ footer b{color:var(--text);font-family:'Prompt'}
     <div class="wrap">
       <div class="sec-head"><h2>คำถามที่พบบ่อย</h2></div>
       <div class="faq">
-        <details><summary>ไฟล์ที่ได้เป็นสกุลอะไร แก้ไขได้ไหม</summary><div class="a">เป็นไฟล์ Excel (.xlsx) เปิดได้ทั้ง Microsoft Excel และ Google Sheets แก้ไขหัวข้อ น้ำหนัก และเกณฑ์คะแนนให้เข้ากับองค์กรของคุณได้ทั้งหมด</div></details>
+        <details><summary>ไฟล์ที่ได้เป็นสกุลอะไร แก้ไขได้ไหม</summary><div class="a">ใบประเมินผลงานประจำปีเป็นไฟล์ Excel (.xlsx) ส่วนใบประเมินผลทดลองงานเป็นไฟล์ Word (.docx) ทั้งสองแบบเปิดด้วย Microsoft Office หรือ Google Docs/Sheets ได้ และแก้ไขหัวข้อ น้ำหนัก เกณฑ์คะแนนให้เข้ากับองค์กรของคุณได้ทั้งหมด</div></details>
         <details><summary>เนื้อหาในไฟล์แต่ละตำแหน่งต่างกันจริงไหม</summary><div class="a">ต่างกันจริง แต่ละไฟล์ออกแบบหัวข้อประเมินและ KPI จากหน้างานจริงของตำแหน่งนั้นในธุรกิจนั้น เช่น ใบประเมินเจ้าหน้าที่สินไหมรถยนต์ จะวัดคนละเรื่องกับนักคณิตศาสตร์ประกันภัย</div></details>
         <details><summary>ซื้อในนามบริษัท ขอเอกสารประกอบการเบิกได้ไหม</summary><div class="a">ได้ครับ แจ้งชื่อบริษัทและที่อยู่ทาง LINE หลังชำระเงิน เราจัดเอกสารใบเสร็จรับเงินให้สำหรับใช้เบิกภายในองค์กร</div></details>
         <details><summary>ธุรกิจหรือตำแหน่งที่ต้องการยังไม่มีในเว็บ ทำอย่างไร</summary><div class="a">ทัก LINE มาแจ้งชื่อธุรกิจและตำแหน่งที่ต้องการได้เลย เราทยอยเปิดตามความต้องการของลูกค้า และจะแจ้งกลับทันทีเมื่อไฟล์พร้อมขาย</div></details>
@@ -2895,7 +2895,63 @@ const BUSINESSES = [
 
 ];
 const COMING_SOON = ["โรงพยาบาลรัฐ (รพช./รพท./รพศ.)","โรงงานอาหารทะเลส่งออก","โรงงานเครื่องสำอาง","โรงงานน้ำมันปาล์ม/น้ำมันพืช","โรงงานหม้อแปลงไฟฟ้า","โรงงานปั๊มโลหะ/จิวเวลรี่","โรงงานบรรจุภัณฑ์/กระป๋อง","โรงแรม รีสอร์ท","ห้างสรรพสินค้า","พัฒนาอสังหาริมทรัพย์/บริหารอาคาร","รับเหมาก่อสร้าง","ธุรกิจเทรดดิ้ง"];
-const UPCOMING_TYPES = ["ใบประเมินผลทดลองงาน","Job Description","Succession Plan","คู่มือปฏิบัติงาน (SOP/WI)"];
+const UPCOMING_TYPES = ["Job Description","Succession Plan","คู่มือปฏิบัติงาน (SOP/WI)"];
+
+// ===== Phase 2: ใบประเมินผลทดลองงาน (ไฟล์ Word .docx) =====
+const PROB_BUSINESSES = [
+{ id:"DPS", name:"ห้างสรรพสินค้า", items:[
+["HQ-MER-01","เจ้าหน้าที่จัดซื้อ"],["HQ-MER-02","เจ้าหน้าที่วางแผนและกระจายสินค้า"],["HQ-MER-03","ผู้จัดการฝ่ายจัดซื้อและวางแผนสินค้า"],
+["HQ-MKT-01","เจ้าหน้าที่การตลาด"],["HQ-MKT-02","เจ้าหน้าที่การตลาดดิจิทัลและกราฟิก"],["HQ-MKT-03","ผู้จัดการฝ่ายการตลาด"],
+["HQ-FIN-01","เจ้าหน้าที่บัญชี"],["HQ-FIN-02","เจ้าหน้าที่การเงิน"],["HQ-FIN-03","ผู้จัดการฝ่ายบัญชีและการเงิน"],
+["HQ-HR-01","เจ้าหน้าที่สรรหาว่าจ้าง"],["HQ-HR-02","เจ้าหน้าที่ค่าจ้างและสวัสดิการ"],["HQ-HR-03","ผู้จัดการฝ่ายทรัพยากรบุคคล"],
+["HQ-IT-01","เจ้าหน้าที่สนับสนุนระบบไอที"],["HQ-LP-01","เจ้าหน้าที่ป้องกันการสูญเสีย ส่วนกลาง"],
+["HQ-OPS-01","เจ้าหน้าที่ปฏิบัติการและตรวจสาขา"],["HQ-OPS-02","ผู้จัดการฝ่ายปฏิบัติการสาขา"],
+["HQ-VM-01","เจ้าหน้าที่ออกแบบตกแต่งร้านค้า ส่วนกลาง"],
+["BR-MGT-01","ผู้จัดการสาขา"],["BR-MGT-02","ผู้ช่วยผู้จัดการสาขา"],["BR-MGT-03","หัวหน้าแผนก/โซนขาย"],
+["BR-SCS-01","พนักงานขาย"],["BR-SCS-02","แคชเชียร์"],["BR-SCS-03","พนักงานบริการลูกค้าและประชาสัมพันธ์"],["BR-SCS-04","พนักงานห่อของขวัญและบริการพิเศษ"],
+["BR-MSP-01","พนักงานจัดเรียง/เติมสินค้า"],["BR-MSP-02","พนักงานตกแต่งหน้าร้าน"],["BR-MSP-03","พนักงานห้องลองเสื้อ"],["BR-MSP-04","ช่างเย็บแก้ไขเสื้อผ้า"],
+["BR-SWS-01","พนักงานคลังสินค้าประจำสาขา"],["BR-SWS-02","เจ้าหน้าที่ป้องกันการสูญเสียประจำสาขา"],["BR-SWS-03","พนักงานรักษาความปลอดภัย"],["BR-SWS-04","พนักงานทำความสะอาด"],
+["DC-MGT-01","ผู้จัดการศูนย์กระจายสินค้า"],["DC-MGT-02","หัวหน้าคลังสินค้า"],
+["DC-WHO-01","พนักงานจัดเก็บ/หยิบสินค้า"],["DC-WHO-02","พนักงานขับรถโฟล์คลิฟท์"],["DC-WHO-03","เจ้าหน้าที่รับสินค้าเข้า"],["DC-WHO-04","เจ้าหน้าที่ควบคุมสินค้าคงคลัง"],["DC-WHO-05","เจ้าหน้าที่ตรวจสอบคุณภาพสินค้า"],
+["DC-LOG-01","เจ้าหน้าที่ประสานงานขนส่ง"],["DC-LOG-02","พนักงานขับรถขนส่งสินค้า"],["DC-LOG-03","เจ้าหน้าที่จัดการสินค้าตีกลับ/ชำรุด"]
+]},
+{ id:"HTL", name:"โรงแรม รีสอร์ท", items:[
+["FO-01","พนักงานต้อนรับส่วนหน้า"],["FO-02","พนักงานยกกระเป๋า/อำนวยความสะดวก"],["FO-03","เจ้าหน้าที่สำรองห้องพัก"],["FO-04","พนักงานรับโทรศัพท์"],["FO-05","เจ้าหน้าที่ลูกค้าสัมพันธ์"],["FO-06","พนักงานตรวจสอบบัญชีกลางคืน"],["FO-07","พนักงานขับรถ"],
+["HK-01","พนักงานทำความสะอาดห้องพัก"],["HK-02","พนักงานทำความสะอาดพื้นที่ส่วนกลาง"],["HK-03","พนักงานซักรีด"],["HK-04","พนักงานดูแลสวน"],["HK-05","หัวหน้าแม่บ้าน / ผู้ตรวจห้องพัก"],
+["FNB-01","พนักงานบริการอาหารและเครื่องดื่ม"],["FNB-02","พนักงานต้อนรับห้องอาหาร"],["FNB-03","พนักงานผสมเครื่องดื่ม"],["FNB-04","บาริสต้า"],["FNB-05","พนักงานบริการจัดเลี้ยง"],["FNB-06","พนักงานสจ๊วต"],
+["KIT-01","พนักงานครัว"],["KIT-02","พนักงานครัวขนมอบ / เบเกอรี่"],["KIT-03","หัวหน้าครัวส่วน"],
+["SPA-01","พนักงานนวดสปา"],["SPA-02","พนักงานต้อนรับสปา"],["SPA-03","พนักงานดูแลสระว่ายน้ำและฟิตเนส"],
+["SAL-01","พนักงานขาย"],["SAL-02","เจ้าหน้าที่การตลาด / การตลาดดิจิทัล"],["SAL-03","เจ้าหน้าที่ประสานงานจัดเลี้ยงและอีเวนต์"],
+["ADM-01","พนักงานบัญชี"],["ADM-02","เจ้าหน้าที่จัดซื้อ"],["ADM-03","พนักงานคลังสินค้า"],["ADM-04","เจ้าหน้าที่ทรัพยากรบุคคล"],["ADM-05","เจ้าหน้าที่สนับสนุนระบบสารสนเทศ"],
+["ENG-01","ช่างซ่อมบำรุง"],["SEC-01","พนักงานรักษาความปลอดภัย"]
+]},
+{ id:"HSP", name:"โรงพยาบาลเอกชน", items:[
+["NUR-01","ผู้อำนวยการฝ่ายการพยาบาล"],["NUR-02","ผู้ตรวจการพยาบาล"],["NUR-03","หัวหน้าหอผู้ป่วย / หัวหน้าหน่วยบริการพยาบาล"],["NUR-04","พยาบาลวิชาชีพ (หอผู้ป่วย)"],["NUR-05","พยาบาลวิชาชีพ (ผู้ป่วยนอก OPD)"],["NUR-06","พยาบาลวิชาชีพ (อุบัติเหตุ-ฉุกเฉิน)"],["NUR-07","พยาบาลห้องผ่าตัด"],["NUR-08","พยาบาลวิชาชีพ (หอผู้ป่วยวิกฤต ICU/CCU)"],["NUR-09","วิสัญญีพยาบาล"],["NUR-10","พยาบาลวิชาชีพ (ห้องคลอด)"],["NUR-11","พยาบาลวิชาชีพ (ทารกแรกเกิด NICU)"],["NUR-12","พยาบาลวิชาชีพ (ไตเทียม)"],["NUR-13","พยาบาลวิชาชีพ (หน่วยตรวจพิเศษ ส่องกล้อง/สวนหัวใจ)"],["NUR-14","พยาบาลควบคุมการติดเชื้อ (ICN)"],["NUR-15","พยาบาล UR (Utilization Review)"],["NUR-16","ผู้ช่วยพยาบาล"],["NUR-17","พนักงานผู้ช่วยเหลือคนไข้"],["NUR-18","เจ้าหน้าที่เวชกิจฉุกเฉิน"],["NUR-19","ธุรการหอผู้ป่วย (Ward Clerk)"],
+["MED-01","หัวหน้าแผนกเภสัชกรรม"],["MED-02","เภสัชกร"],["MED-03","ผู้ช่วยเภสัชกร / เจ้าหน้าที่ห้องยา"],["MED-04","หัวหน้าห้องปฏิบัติการ"],["MED-05","นักเทคนิคการแพทย์"],["MED-06","เจ้าหน้าที่เจาะเลือด"],["MED-07","หัวหน้าแผนกรังสีวิทยา"],["MED-08","นักรังสีเทคนิค"],["MED-09","หัวหน้าแผนกเวชศาสตร์ฟื้นฟู"],["MED-10","นักกายภาพบำบัด"],["MED-11","ผู้ช่วยนักกายภาพบำบัด"],["MED-12","นักกิจกรรมบำบัด"],["MED-13","นักแก้ไขการพูด"],["MED-14","นักจิตวิทยาคลินิก"],["MED-15","หัวหน้าแผนกโภชนาการ"],["MED-16","นักโภชนาการ"],["MED-17","ผู้ช่วยทันตแพทย์"],
+["PSV-01","ผู้จัดการฝ่ายบริการผู้ป่วย"],["PSV-02","หัวหน้าแผนกต้อนรับและลงทะเบียน"],["PSV-03","หัวหน้าแผนกเวชระเบียน"],["PSV-04","พนักงานต้อนรับและลงทะเบียนผู้ป่วย"],["PSV-05","เจ้าหน้าที่เวชระเบียน"],["PSV-06","เจ้าหน้าที่ประสานสิทธิและเคลมประกัน"],["PSV-07","เจ้าหน้าที่ประสานงานผู้ป่วยต่างชาติ / ล่าม"],["PSV-08","เจ้าหน้าที่ Call Center และนัดหมาย"],["PSV-09","เจ้าหน้าที่ลูกค้าสัมพันธ์ / รับเรื่องร้องเรียน"],["PSV-10","พนักงานเปล"],
+["FAC-01","ผู้จัดการฝ่ายอาคารสถานที่และวิศวกรรม"],["FAC-02","หัวหน้าแผนกแม่บ้าน"],["FAC-03","หัวหน้าหน่วยจ่ายกลาง (CSSD)"],["FAC-04","หัวหน้าแผนกรักษาความปลอดภัย"],["FAC-05","พนักงานทำความสะอาด (แม่บ้านโรงพยาบาล)"],["FAC-06","พนักงานซักฟอก"],["FAC-07","เจ้าหน้าที่หน่วยจ่ายกลาง (CSSD)"],["FAC-08","พนักงานโภชนาการ / ผู้ช่วยครัวโรงพยาบาล"],["FAC-09","พนักงานขับรถพยาบาล"],["FAC-10","พนักงานรักษาความปลอดภัย"],["FAC-11","ช่างซ่อมบำรุงโรงพยาบาล"],
+["FIN-01","ผู้จัดการฝ่ายบัญชีและการเงิน"],["FIN-02","หัวหน้าแผนกการเงินผู้ป่วย"],["FIN-03","หัวหน้าแผนกบัญชี"],["FIN-04","เจ้าหน้าที่การเงินผู้ป่วย / แคชเชียร์"],["FIN-05","พนักงานบัญชี"],
+["HR-01","ผู้อำนวยการฝ่ายทรัพยากรบุคคล"],["HR-02","ผู้จัดการแผนกบริหารทรัพยากรบุคคล (HRM)"],["HR-03","ผู้จัดการแผนกพัฒนาทรัพยากรบุคคล (HRD)"],["HR-04","หัวหน้าแผนกสรรหาว่าจ้าง"],["HR-05","หัวหน้าแผนกฝึกอบรม"],["HR-06","หัวหน้าแผนกค่าตอบแทนและสวัสดิการ (C&B)"],["HR-07","เจ้าหน้าที่สรรหาว่าจ้าง"],["HR-08","เจ้าหน้าที่ฝึกอบรม"],["HR-09","เจ้าหน้าที่ทรัพยากรบุคคล (HR/Payroll)"],
+["QAD-01","ผู้จัดการฝ่ายพัฒนาคุณภาพ (QMR)"],["QAD-02","ผู้จัดการความเสี่ยง (Risk Manager)"],["QAD-03","เจ้าหน้าที่พัฒนาคุณภาพ (HA)"],
+["PUR-01","ผู้จัดการฝ่ายจัดซื้อ"],["PUR-02","เจ้าหน้าที่จัดซื้อ (เวชภัณฑ์และทั่วไป)"],["PUR-03","หัวหน้าคลังเวชภัณฑ์และพัสดุ"],["PUR-04","เจ้าหน้าที่คลังเวชภัณฑ์และพัสดุ"],
+["MKT-01","ผู้จัดการฝ่ายการตลาด"],["MKT-02","เจ้าหน้าที่การตลาดและสื่อสารองค์กร"],
+["IT-01","ผู้จัดการฝ่ายสารสนเทศ"],["IT-02","เจ้าหน้าที่สนับสนุนระบบสารสนเทศ (HIS)"]
+]},
+{ id:"APM", name:"โรงงานผลิตชิ้นส่วนรถยนต์", items:[
+["PLT-MGT-01","ผู้จัดการโรงงาน"],["PLT-MGT-02","ผู้จัดการฝ่ายผลิต"],
+["PLT-PRD-01","หัวหน้างานสายการผลิต"],["PLT-PRD-02","ช่างควบคุมเครื่อง CNC/ปั๊มขึ้นรูป"],["PLT-PRD-03","พนักงานประกอบชิ้นส่วน"],["PLT-PRD-04","ช่างเชื่อม/ควบคุมหุ่นยนต์เชื่อม"],["PLT-PRD-05","ช่างควบคุมเครื่องฉีดพลาสติก"],["PLT-PRD-06","พนักงานจัดส่งวัตถุดิบเข้าสายการผลิต"],
+["PLT-PPC-01","เจ้าหน้าที่วางแผนการผลิต"],
+["PLT-ENG-01","ช่างซ่อมบำรุงเครื่องจักร"],["PLT-ENG-02","วิศวกรกระบวนการผลิต"],["PLT-ENG-03","ช่างซ่อมแม่พิมพ์"],
+["PLT-QA-01","พนักงานตรวจสอบคุณภาพ"],["PLT-QA-02","วิศวกรประกันคุณภาพ"],["PLT-QA-03","เจ้าหน้าที่ประสานงานคุณภาพลูกค้า"],["PLT-QA-04","ผู้จัดการฝ่ายประกันคุณภาพ"],
+["PLT-WHL-01","พนักงานคลังวัตถุดิบ"],["PLT-WHL-02","พนักงานคลังสินค้าสำเร็จรูป"],["PLT-WHL-03","พนักงานขับรถโฟล์คลิฟท์"],["PLT-WHL-04","พนักงานขับรถส่งสินค้า"],["PLT-WHL-05","เจ้าหน้าที่โลจิสติกส์/จัดส่ง"],
+["PLT-SHE-01","เจ้าหน้าที่ความปลอดภัยในการทำงาน"],["PLT-SHE-02","พนักงานรักษาความปลอดภัย"],["PLT-FAC-01","พนักงานทำความสะอาดโรงงาน"],
+["HQ-RND-01","วิศวกรออกแบบผลิตภัณฑ์"],["HQ-IT-01","เจ้าหน้าที่สนับสนุนระบบไอที"],
+["HQ-HR-01","เจ้าหน้าที่บุคคล"],["HQ-HR-02","เจ้าหน้าที่ค่าจ้างและสวัสดิการ"],["HQ-HR-03","ผู้จัดการฝ่ายบุคคล"],
+["HQ-PUR-01","เจ้าหน้าที่จัดซื้อ"],["HQ-PUR-02","ผู้จัดการฝ่ายจัดซื้อ"],
+["HQ-SAL-01","เจ้าหน้าที่ขาย"],["HQ-SAL-02","ผู้จัดการฝ่ายขาย"],
+["HQ-FIN-01","เจ้าหน้าที่บัญชี"],["HQ-FIN-02","เจ้าหน้าที่บัญชีต้นทุน"],["HQ-FIN-03","ผู้จัดการฝ่ายบัญชีและการเงิน"]
+]}
+];
 
 </script>
 <script>
@@ -2907,23 +2963,35 @@ var LINE_URL = "https://line.me/ti/p/~" + LINE_ID;
 var PP_PHONE = "0814067240";
 var PRICE = 120, PRICE_BULK = 100, BULK_AT = 10;
 function lvlOf(title){
-  if(title.indexOf("ผู้จัดการ")>=0) return ["l1","L1","บริหาร/จัดการ"];
-  if(title.indexOf("หัวหน้า")>=0 || title.indexOf("Superintendent")>=0 || title.indexOf("อาวุโส")>=0) return ["l2","L2","หัวหน้างาน"];
+  if(title.indexOf("ผู้จัดการ")>=0 || title.indexOf("ผู้อำนวยการ")>=0) return ["l1","L1","บริหาร/จัดการ"];
+  if(title.indexOf("หัวหน้า")>=0 || title.indexOf("ผู้ตรวจการ")>=0 || title.indexOf("Superintendent")>=0 || title.indexOf("อาวุโส")>=0) return ["l2","L2","หัวหน้างาน"];
   return ["l3","L3","ปฏิบัติการ/วิชาชีพ"];
 }
 
 // ===================== catalog model =====================
+var TYPES = [
+  {tid:"PA", name:"ใบประเมินผลงานประจำปี", ftype:"Excel (.xlsx)", biz:BUSINESSES},
+  {tid:"PB", name:"ใบประเมินผลทดลองงาน", ftype:"Word (.docx)", biz:PROB_BUSINESSES}
+];
 var ALL = [];
-BUSINESSES.forEach(function(b){
-  b.items.forEach(function(it){
-    var lv = lvlOf(it[2]);
-    ALL.push({sku:"PA-"+b.id+"-"+it[0]+it[1], biz:b.id, bizName:b.name, d:it[0], p:it[1], title:it[2], lvlCls:lv[0], lvl:lv[1], lvlLabel:lv[2]});
+TYPES.forEach(function(T){
+  T.biz.forEach(function(b){
+    b.items.forEach(function(it){
+      var code = (T.tid==="PA") ? (it[0]+it[1]) : it[0];
+      var title = (T.tid==="PA") ? it[2] : it[1];
+      var lv = lvlOf(title);
+      ALL.push({sku:T.tid+"-"+b.id+"-"+code, type:T.tid, typeName:T.name, ftype:T.ftype,
+                biz:b.id, bizName:b.name, title:title, lvlCls:lv[0], lvl:lv[1], lvlLabel:lv[2]});
+    });
   });
 });
 var BY_SKU = {}; ALL.forEach(function(x){BY_SKU[x.sku]=x;});
 
 // ===================== state =====================
-var state = { biz: BUSINESSES[0].id, q:"", lvl:"" };
+var state = { type:"PA", biz: BUSINESSES[0].id, q:"", lvl:"" };
+var navOpen = {};
+TYPES.forEach(function(T){ navOpen[T.tid] = true; });
+UPCOMING_TYPES.forEach(function(t){ navOpen["up:"+t] = false; });
 var cart = [];
 try{ cart = JSON.parse(localStorage.getItem("tb_cart")||"[]").filter(function(s){return BY_SKU[s];}); }catch(e){ cart=[]; }
 function saveCart(){ try{ localStorage.setItem("tb_cart", JSON.stringify(cart)); }catch(e){} }
@@ -2968,16 +3036,26 @@ function $(id){ return document.getElementById(id); }
 function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
 function renderSideNav(){
-  var bizHtml = BUSINESSES.map(function(b){
-    return '<button data-biz="'+b.id+'"'+(b.id===state.biz?' class="active"':'')+'>'+esc(b.name)+'<span class="n">'+b.items.length+'</span></button>';
-  }).join("");
-  var h = '<details open><summary>ใบประเมินผลงานประจำปี<span class="cnt">'+ALL.length+' ไฟล์</span><span class="caret">&#9656;</span></summary>'
-        + '<nav class="biznav">'+bizHtml+'</nav></details>';
+  var h = "";
+  TYPES.forEach(function(T){
+    var total = ALL.filter(function(x){return x.type===T.tid;}).length;
+    var bizHtml = T.biz.map(function(b){
+      var act = (state.type===T.tid && state.biz===b.id);
+      return '<button data-type="'+T.tid+'" data-biz="'+b.id+'"'+(act?' class="active"':'')+'>'+esc(b.name)+'<span class="n">'+b.items.length+'</span></button>';
+    }).join("");
+    h += '<details data-key="'+T.tid+'"'+(navOpen[T.tid]?" open":"")+'><summary>'+esc(T.name)+'<span class="cnt">'+total+' ไฟล์</span><span class="caret">&#9656;</span></summary>'
+       + '<nav class="biznav">'+bizHtml+'</nav></details>';
+  });
   UPCOMING_TYPES.forEach(function(t){
-    h += '<details><summary class="disabled">'+esc(t)+'<span class="soon">เร็วๆ นี้</span></summary>'
+    var k = "up:"+t;
+    h += '<details data-key="'+esc(k)+'"'+(navOpen[k]?" open":"")+'><summary class="disabled">'+esc(t)+'<span class="soon">เร็วๆ นี้</span></summary>'
        + '<div style="padding:0 10px 12px;color:var(--muted);font-size:13.5px">กำลังทยอยเปิด แจ้งความสนใจล่วงหน้าได้ทาง LINE</div></details>';
   });
   $("sideNav").innerHTML = h;
+  // จำสถานะเปิด/ปิดของแต่ละหมวด เพื่อไม่ให้เด้งกลับมาเปิดเองตอน re-render
+  Array.prototype.forEach.call($("sideNav").querySelectorAll("details"), function(d){
+    d.addEventListener("toggle", function(){ navOpen[d.getAttribute("data-key")] = d.open; });
+  });
 }
 function renderLvl(){
   var lv=[["","ทุกระดับ"],["L1","บริหาร/จัดการ"],["L2","หัวหน้างาน"],["L3","ปฏิบัติการ"]];
@@ -2988,7 +3066,7 @@ function renderLvl(){
 function visibleItems(){
   var q = state.q.trim().toLowerCase();
   return ALL.filter(function(x){
-    if(x.biz!==state.biz) return false;
+    if(x.type!==state.type || x.biz!==state.biz) return false;
     if(state.lvl && x.lvl!==state.lvl) return false;
     if(q && x.title.toLowerCase().indexOf(q)<0 && x.sku.toLowerCase().indexOf(q)<0) return false;
     return true;
@@ -2997,14 +3075,15 @@ function visibleItems(){
 function inCart(sku){ return cart.indexOf(sku)>=0; }
 function renderGrid(){
   var items = visibleItems();
-  var bizName = BY_SKU[Object.keys(BY_SKU)[0]] && BUSINESSES.filter(function(b){return b.id===state.biz;})[0].name;
-  $("resultNote").textContent = "พบ "+items.length+" ตำแหน่ง ใน"+bizName+(state.q?' จากคำค้น "'+state.q+'"':"");
+  var T = TYPES.filter(function(t){return t.tid===state.type;})[0];
+  var bz = T.biz.filter(function(b){return b.id===state.biz;})[0];
+  $("resultNote").textContent = T.name+" · "+(bz?bz.name:"")+" — พบ "+items.length+" ตำแหน่ง"+(state.q?' จากคำค้น "'+state.q+'"':"")+" · ไฟล์ "+T.ftype;
   if(!items.length){ $("grid").innerHTML = '<div class="empty">ไม่พบตำแหน่งที่ค้นหาในธุรกิจนี้ ลองคำอื่น หรือทัก LINE มาสอบถามได้เลยครับ</div>'; return; }
   $("grid").innerHTML = items.map(function(x){
     var added = inCart(x.sku);
     return '<div class="card">'
       +'<div class="meta"><span class="sku">'+x.sku+'</span><span class="lvltag '+x.lvlCls+'">'+x.lvlLabel+'</span></div>'
-      +'<h3>ใบประเมินผลงานประจำปี · '+esc(x.title)+'</h3>'
+      +'<h3>'+esc(x.typeName)+' · '+esc(x.title)+'</h3>'
       +'<div class="buy"><span class="price">120.- <small>ครบ 10 ไฟล์ เหลือ 100.-</small></span>'
       +'<button class="addbtn'+(added?" added":"")+'" data-sku="'+x.sku+'">'+(added?"✓ อยู่ในตะกร้า":"+ ใส่ตะกร้า")+'</button></div>'
     +'</div>';
@@ -3104,7 +3183,7 @@ function closeDrawer(){ $("drawer").classList.remove("show"); $("scrim").classLi
 document.addEventListener("click",function(e){
   var t=e.target.closest("[data-sku]"); if(t){ addToCart(t.getAttribute("data-sku")); return; }
   t=e.target.closest("[data-rm]"); if(t){ cart=cart.filter(function(s){return s!==t.getAttribute("data-rm");}); saveCart(); renderCart(); renderGrid(); return; }
-  t=e.target.closest("[data-biz]"); if(t){ state.biz=t.getAttribute("data-biz"); renderSideNav(); renderGrid(); document.getElementById("catalog").scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  t=e.target.closest("[data-biz]"); if(t){ state.type=t.getAttribute("data-type"); state.biz=t.getAttribute("data-biz"); renderSideNav(); renderGrid(); var cat=document.getElementById("catalog"); if(cat.scrollIntoView) cat.scrollIntoView({behavior:"smooth",block:"start"}); return; }
   t=e.target.closest("[data-lvl]"); if(t!==null && t){ state.lvl=t.getAttribute("data-lvl"); renderLvl(); renderGrid(); return; }
 });
 $("q").addEventListener("input",function(){ state.q=this.value; renderGrid(); });
