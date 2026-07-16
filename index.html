@@ -239,6 +239,17 @@ footer b{color:var(--text);font-family:'Prompt'}
 .article li{color:var(--text);opacity:.92;margin-bottom:6px;line-height:1.7}
 .article .art-by{margin-top:24px;color:var(--muted);font-style:italic}
 @media(max-width:560px){.article{padding:22px 18px}}
+
+/* ===== เรียนฟรี (interactive lessons) ===== */
+.learnwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-top:6px}
+.learncard{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
+.learncard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.learnicon{flex:none;width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,#4c8dff,#1f3a8f);color:#eaf2ff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Prompt';font-size:15px;letter-spacing:.5px}
+.learntag{display:inline-block;font-size:12.5px;color:var(--gold);font-family:'Prompt';margin-bottom:4px}
+.learnbody h3{font-size:17px;font-weight:600;line-height:1.45;margin-bottom:6px}
+.learnbody p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:12px}
+.learnstart{font-weight:600;color:var(--accent);font-size:14.5px}
+.learncard:hover .learnstart{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -249,6 +260,7 @@ footer b{color:var(--text);font-family:'Prompt'}
     <nav class="navlinks" aria-label="เมนูหลัก">
       <a href="#catalog">ไฟล์ทั้งหมด</a>
       <a href="#free">ดาวน์โหลดฟรี</a>
+      <a href="#learn">เรียนฟรี</a>
       <a href="#articles">บทความ</a>
       <a href="#faq">คำถามที่พบบ่อย</a>
     </nav>
@@ -364,13 +376,34 @@ footer b{color:var(--text);font-family:'Prompt'}
             <h3>ใบประเมินผลงานประจำปี — ผู้จัดการฝ่ายหลอมและเทน้ำโลหะ (ธุรกิจโรงหล่อโลหะ)</h3>
             <p>ไฟล์ตัวอย่างเต็มรูปแบบ 3 ชีต: ตัวชี้วัด KPIs (น้ำหนัก 80) · Competency/พฤติกรรม (น้ำหนัก 20) · สรุปผลและเกรดประจำปี — แก้ไขหัวข้อและเกณฑ์ได้ทั้งหมด</p>
             <div class="freeact">
-              <a class="btn btn-primary" href="phase1/PA-ตัวอย่าง-ผู้จัดการฝ่ายหลอมและเทน้ำโลหะ.xlsx" download>ดาวน์โหลดไฟล์ตัวอย่าง (.xlsx)</a>
+              <a class="btn btn-primary" href="phase1/sample-PA-annual-melting-manager.xlsx" download>ดาวน์โหลดไฟล์ตัวอย่าง (.xlsx)</a>
               <a class="btn btn-ghost" id="freeLine" href="#" target="_blank" rel="noopener">อยากได้ตำแหน่งอื่น · ทัก LINE</a>
             </div>
           </div>
         </div>
         <p class="freenote">ตัวอย่างนี้เป็นเพียง 1 ตำแหน่งจากคลังไฟล์ทั้งหมด — แต่ละตำแหน่งในแต่ละธุรกิจมี KPI และหัวข้อประเมินเฉพาะของตัวเอง ไม่ใช่ฟอร์มกลางที่ใช้เหมือนกันทุกตำแหน่ง</p>
       </div>
+    </div>
+  </section>
+
+  <section id="learn" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>เรียนฟรี — ตำราเรียนรู้แบบ Interactive</h2>
+        <p>บทเรียนออนไลน์แบบอินเทอร์แอกทีฟ เปิดอ่านและทำแบบทดสอบได้ฟรี ไม่ต้องสมัครสมาชิก เหมาะสำหรับปฐมนิเทศพนักงานใหม่และทบทวนความรู้หน้างาน จะทยอยเพิ่มบทเรียนใหม่เรื่อย ๆ</p>
+      </div>
+      <div class="learnwrap">
+        <a class="learncard" href="learn/pacu-new-nurse-orientation.html" target="_blank" rel="noopener">
+          <div class="learnicon">PACU</div>
+          <div class="learnbody">
+            <span class="learntag">พยาบาล · ห้องพักฟื้น</span>
+            <h3>ระบบงานที่พยาบาลใหม่ PACU ต้องรู้</h3>
+            <p>ภาพรวมระบบงาน · ระบบงานหลักและระบบสนับสนุน · คลังเอกสารที่เกี่ยวข้อง · แผนภาพวงจรงาน (PACU Workflow) · แบบทดสอบความรู้ท้ายบท</p>
+            <span class="learnstart">เริ่มเรียน · เปิดบทเรียน →</span>
+          </div>
+        </a>
+      </div>
+      <p class="freenote">อยากได้บทเรียนหรือตำรา Interactive สำหรับหน่วยงานของคุณ ทัก LINE narongwits มาคุยได้เลย</p>
     </div>
   </section>
 
