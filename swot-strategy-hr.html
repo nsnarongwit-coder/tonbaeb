@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWOT → Strategy Generator | งานทรัพยากรบุคคล (HR) 20 ประเภทธุรกิจ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1626; --bg2:#0E1E33; --panel:#122641; --card:#13243C; --card2:#182C48;
+  --line:#24405F; --line2:#2E4E72;
+  --ink:#EAF2FB; --ink2:#AFC4DB; --ink3:#7C93AD;
+  --teal:#2DD4BF; --teal-d:#0F766E; --gold:#F5C55A; --gold-d:#B8860B;
+  --s:#34D399; --s-bg:rgba(52,211,153,.10); --s-line:rgba(52,211,153,.35);
+  --w:#FBBF24; --w-bg:rgba(251,191,36,.10); --w-line:rgba(251,191,36,.35);
+  --o:#60A5FA; --o-bg:rgba(96,165,250,.10); --o-line:rgba(96,165,250,.35);
+  --t:#FB7185; --t-bg:rgba(251,113,133,.10); --t-line:rgba(251,113,133,.35);
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Sarabun',-apple-system,'Segoe UI',Tahoma,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(45,212,191,.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(96,165,250,.06), transparent 60%),
+    var(--bg);
+  color:var(--ink); font-size:15px; line-height:1.7; min-height:100vh;
+}
+h1,h2,h3,h4,.disp{font-family:'IBM Plex Sans Thai','Sarabun',sans-serif}
+
+/* ===== Header ===== */
+header{
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(19,36,60,.9), rgba(10,22,38,.6));
+  backdrop-filter:blur(6px);
+  position:sticky; top:0; z-index:50;
+}
+.hwrap{max-width:1280px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{
+  width:44px;height:44px;border-radius:12px;flex:none;
+  background:conic-gradient(from 210deg, var(--teal), #4F9CF0, var(--gold), var(--teal));
+  display:grid;place-items:center;color:#06121F;font-weight:800;font-family:'IBM Plex Sans Thai';
+  box-shadow:0 0 24px rgba(45,212,191,.35);
+}
+.htitle h1{font-size:18px;font-weight:700;letter-spacing:.2px}
+.htitle p{font-size:12.5px;color:var(--ink3)}
+.hmeta{margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,input[type=text]{
+  background:var(--card);border:1px solid var(--line2);color:var(--ink);
+  border-radius:10px;padding:8px 12px;font-family:inherit;font-size:14px;outline:none;
+}
+select:focus,input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.15)}
+.btn{
+  border:1px solid var(--line2);background:var(--card);color:var(--ink);
+  border-radius:10px;padding:8px 14px;font-family:'IBM Plex Sans Thai';font-weight:600;
+  font-size:13.5px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn.primary{background:linear-gradient(135deg,var(--teal-d),#0B5E58);border-color:var(--teal);color:#DFFCF7}
+.btn.primary:hover{filter:brightness(1.15);color:#fff}
+.btn.ghost{background:transparent}
+.btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* ===== Layout ===== */
+.wrap{max-width:1280px;margin:0 auto;padding:22px;display:grid;grid-template-columns:430px 1fr;gap:22px;align-items:start}
+@media(max-width:1020px){.wrap{grid-template-columns:1fr}}
+
+/* ===== SWOT input panels ===== */
+.inputs{display:flex;flex-direction:column;gap:14px}
+.swot-panel{border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
+.swot-head{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.swot-badge{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-family:'IBM Plex Sans Thai';font-weight:800;font-size:16px;flex:none}
+.swot-head h3{font-size:14.5px;font-weight:700}
+.swot-head .sub{font-size:11.5px;color:var(--ink3);font-weight:400}
+.count{margin-left:auto;font-size:12px;color:var(--ink3);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:2px 10px}
+.p-s .swot-badge{background:var(--s-bg);color:var(--s);border:1px solid var(--s-line)}
+.p-w .swot-badge{background:var(--w-bg);color:var(--w);border:1px solid var(--w-line)}
+.p-o .swot-badge{background:var(--o-bg);color:var(--o);border:1px solid var(--o-line)}
+.p-t .swot-badge{background:var(--t-bg);color:var(--t);border:1px solid var(--t-line)}
+.p-s{border-top:2px solid var(--s)} .p-w{border-top:2px solid var(--w)}
+.p-o{border-top:2px solid var(--o)} .p-t{border-top:2px solid var(--t)}
+.items{padding:8px 10px;display:flex;flex-direction:column;gap:7px}
+.item{display:grid;grid-template-columns:1fr 86px 30px;gap:7px;align-items:center}
+.item input[type=text]{width:100%;font-size:13.5px;padding:7px 10px}
+.item select{font-size:12.5px;padding:7px 6px}
+.del{
+  width:30px;height:30px;border-radius:8px;border:1px solid transparent;background:transparent;
+  color:var(--ink3);cursor:pointer;font-size:15px;line-height:1;
+}
+.del:hover{color:var(--t);border-color:var(--t-line);background:var(--t-bg)}
+.addrow{padding:0 10px 12px}
+.add{
+  width:100%;border:1px dashed var(--line2);background:transparent;color:var(--ink3);
+  border-radius:10px;padding:8px;cursor:pointer;font-family:'IBM Plex Sans Thai';font-size:13px;transition:.15s;
+}
+.add:hover{color:var(--teal);border-color:var(--teal)}
+
+/* ===== Results ===== */
+.results{display:flex;flex-direction:column;gap:18px;min-width:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:76px;z-index:40;background:rgba(10,22,38,.92);backdrop-filter:blur(6px);padding:8px 0;border-bottom:1px solid var(--line)}
+.tab{
+  border:1px solid var(--line2);background:var(--card);color:var(--ink2);border-radius:24px;
+  padding:8px 18px;font-family:'IBM Plex Sans Thai';font-weight:600;font-size:13.5px;cursor:pointer;transition:.15s;
+}
+.tab:hover{color:var(--teal);border-color:var(--teal)}
+.tab.active{background:linear-gradient(135deg,var(--teal-d),#0B5E58);border-color:var(--teal);color:#E5FFFA;box-shadow:0 0 16px rgba(45,212,191,.25)}
+.method{display:none;animation:fadeUp .35s ease}
+.method.show{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--card);margin-bottom:16px;overflow:hidden}
+.card-h{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.card-h h2{font-size:16px;font-weight:700}
+.card-h .tagline{font-size:12.5px;color:var(--ink3)}
+.card-b{padding:16px 18px}
+.eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-family:'IBM Plex Sans Thai';font-weight:700;margin-bottom:2px}
+
+/* strategy rows */
+.stg{border:1px solid var(--line);border-left-width:3px;border-radius:10px;background:var(--bg2);padding:11px 14px;margin-bottom:9px}
+.stg .src{font-size:11.5px;color:var(--ink3);margin-bottom:3px}
+.stg .src b{font-weight:600}
+.stg .body{font-size:14px}
+.stg .name{font-family:'IBM Plex Sans Thai';font-weight:700;font-size:13.5px;margin-bottom:2px}
+.stg.c-s{border-left-color:var(--s)} .stg.c-w{border-left-color:var(--w)}
+.stg.c-o{border-left-color:var(--o)} .stg.c-t{border-left-color:var(--t)}
+.stg.c-so{border-left-color:var(--s)} .stg.c-wo{border-left-color:var(--o)}
+.stg.c-st{border-left-color:var(--gold)} .stg.c-wt{border-left-color:var(--t)}
+.grp-title{display:flex;align-items:center;gap:9px;margin:16px 0 9px;font-family:'IBM Plex Sans Thai';font-weight:700;font-size:14.5px}
+.grp-title:first-child{margin-top:0}
+.dot{width:9px;height:9px;border-radius:50%}
+.pill{font-size:11px;border-radius:14px;padding:1px 9px;border:1px solid var(--line2);color:var(--ink3)}
+
+/* TOWS grid */
+.tows{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.tows{grid-template-columns:1fr}}
+.tows-cell{border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+.tows-cell .th{padding:10px 14px;font-family:'IBM Plex Sans Thai';font-weight:700;font-size:13.5px;display:flex;gap:9px;align-items:center;border-bottom:1px solid var(--line)}
+.tows-cell .th small{font-weight:500;color:var(--ink3);font-size:11.5px}
+.tows-cell .tb{padding:10px 14px}
+.tows-cell .stg{background:var(--card)}
+.tows-cell.q-so .th{color:var(--s)} .tows-cell.q-wo .th{color:var(--o)}
+.tows-cell.q-st .th{color:var(--gold)} .tows-cell.q-wt .th{color:var(--t)}
+
+/* Overall */
+.overall-grid{display:grid;grid-template-columns:360px 1fr;gap:18px;align-items:start}
+@media(max-width:860px){.overall-grid{grid-template-columns:1fr}}
+.compass-box{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:14px;text-align:center}
+.scorebar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:560px){.scorebar{grid-template-columns:repeat(2,1fr)}}
+.sc{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:10px 12px;text-align:center}
+.sc .v{font-family:'IBM Plex Sans Thai';font-weight:800;font-size:22px}
+.sc .l{font-size:11.5px;color:var(--ink3)}
+.pos-label{
+  display:inline-block;margin-top:10px;font-family:'IBM Plex Sans Thai';font-weight:800;font-size:17px;
+  padding:7px 20px;border-radius:26px;border:1px solid var(--teal);color:var(--teal);
+  background:rgba(45,212,191,.08);box-shadow:0 0 18px rgba(45,212,191,.2);
+}
+.vision{
+  border:1px solid var(--gold-d);border-radius:12px;background:linear-gradient(135deg,rgba(245,197,90,.07),transparent);
+  padding:14px 16px;margin-bottom:14px;
+}
+.vision .eyebrow{color:var(--gold)}
+.axisnote{font-size:12px;color:var(--ink3);margin-top:8px}
+
+footer{max-width:1280px;margin:10px auto 40px;padding:0 22px;color:var(--ink3);font-size:12px}
+
+/* print */
+@media print{
+  body{background:#fff;color:#111}
+  header,.tabs,.inputs,.hmeta,footer .noprint,.addrow,.del{display:none!important}
+  .wrap{display:block;max-width:none;padding:0}
+  .method{display:block!important;page-break-before:always}
+  .method:first-of-type{page-break-before:avoid}
+  .card,.stg,.tows-cell,.sc,.compass-box,.vision{border-color:#bbb;background:#fff;color:#111}
+  .card-h h2,.grp-title,.stg .name{color:#0F3B5C}
+  .stg .body{color:#222}.stg .src,.tagline,.sc .l,.axisnote{color:#555}
+}
+
+/* ---- Top 5 summary ---- */
+.top5 .stg{position:relative;padding-left:58px}
+.rankb{position:absolute;left:12px;top:14px;width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;font:800 16px 'IBM Plex Sans Thai',sans-serif;color:#06121F}
+.meter{height:6px;border-radius:4px;background:rgba(148,163,184,.16);margin-top:8px;overflow:hidden;max-width:340px}
+.meter i{display:block;height:100%;border-radius:4px}
+.srcchip{display:inline-block;font-size:11px;padding:2px 9px;border:1px solid var(--line2);border-radius:999px;color:var(--ink3);margin-left:8px;vertical-align:1px}
+.why{font-size:12px;color:var(--ink3);margin-top:6px}
+.sumbox{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(45,212,191,.05);margin-bottom:14px;font-size:13.5px}
+.scorechip{float:right;font:800 13px 'IBM Plex Sans Thai',sans-serif}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="logo">SG</div>
+    <div class="htitle">
+      <h1>SWOT → Strategy Generator</h1>
+      <p>ระบบวิเคราะห์ SWOT และกำหนดทางเลือกเชิงกลยุทธ์อัตโนมัติ · งานทรัพยากรบุคคล (HR) 20 ประเภทธุรกิจ</p>
+    </div>
+    <div class="hmeta">
+      <select id="hospType" title="ขนาดองค์กร">
+        <option value="องค์กรขนาดเล็ก (พนักงานไม่เกิน 200 คน)">ขนาดเล็ก (≤200 คน)</option>
+        <option value="องค์กรขนาดกลาง (พนักงาน 200–1,000 คน)" selected>ขนาดกลาง (200–1,000 คน)</option>
+        <option value="องค์กรขนาดใหญ่ (พนักงานมากกว่า 1,000 คน)">ขนาดใหญ่ (&gt;1,000 คน)</option>
+      </select>
+      <select id="unitSel" style="max-width:300px" title="เลือกประเภทธุรกิจ"></select>
+      <input type="text" id="unitName" value="" style="min-width:250px" title="ชื่อองค์กร/ฝ่าย (แก้ไขได้)">
+      <button class="btn ghost" id="btnSeed" title="โหลดข้อมูลตัวอย่าง HR ของธุรกิจที่เลือก">↺ ข้อมูลตัวอย่าง</button>
+      <button class="btn primary" id="btnWord" title="ส่งออกรายงานแผนกลยุทธ์เป็นไฟล์ Word (.docx)">⬇ Word</button>
+      <button class="btn primary" onclick="window.print()">🖨 พิมพ์ / PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ INPUT COLUMN ============ -->
+  <aside class="inputs" id="inputCol">
+    <div class="swot-panel p-s">
+      <div class="swot-head"><div class="swot-badge">S</div>
+        <h3>จุดแข็ง (Strengths) <span class="sub">ปัจจัยภายใน · เชิงบวก</span></h3>
+        <span class="count" id="cnt-S">0</span></div>
+      <div class="items" id="list-S"></div>
+      <div class="addrow"><button class="add" data-add="S">+ เพิ่มจุดแข็ง</button></div>
+    </div>
+
+    <div class="swot-panel p-w">
+      <div class="swot-head"><div class="swot-badge">W</div>
+        <h3>จุดอ่อน (Weaknesses) <span class="sub">ปัจจัยภายใน · เชิงลบ</span></h3>
+        <span class="count" id="cnt-W">0</span></div>
+      <div class="items" id="list-W"></div>
+      <div class="addrow"><button class="add" data-add="W">+ เพิ่มจุดอ่อน</button></div>
+    </div>
+
+    <div class="swot-panel p-o">
+      <div class="swot-head"><div class="swot-badge">O</div>
+        <h3>โอกาส (Opportunities) <span class="sub">ปัจจัยภายนอก · เชิงบวก</span></h3>
+        <span class="count" id="cnt-O">0</span></div>
+      <div class="items" id="list-O"></div>
+      <div class="addrow"><button class="add" data-add="O">+ เพิ่มโอกาส</button></div>
+    </div>
+
+    <div class="swot-panel p-t">
+      <div class="swot-head"><div class="swot-badge">T</div>
+        <h3>ภัยคุกคาม (Threats) <span class="sub">ปัจจัยภายนอก · เชิงลบ</span></h3>
+        <span class="count" id="cnt-T">0</span></div>
+      <div class="items" id="list-T"></div>
+      <div class="addrow"><button class="add" data-add="T">+ เพิ่มภัยคุกคาม</button></div>
+    </div>
+  </aside>
+
+  <!-- ============ RESULTS COLUMN ============ -->
+  <main class="results">
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="m1" role="tab">วิธีที่ 1 · กลยุทธ์รายปัจจัย</button>
+      <button class="tab" data-tab="m2" role="tab">วิธีที่ 2 · TOWS Matrix</button>
+      <button class="tab" data-tab="m3" role="tab">วิธีที่ 3 · ภาพรวม SWOT</button>
+      <button class="tab" data-tab="m4" role="tab">★ สรุปรวม · Top 5</button>
+    </nav>
+
+    <section class="method show" id="m1">
+      <div class="card">
+        <div class="card-h">
+          <div><div class="eyebrow">Method 1</div><h2>กำหนดกลยุทธ์จากจุดแข็ง จุดอ่อน โอกาส และภัยคุกคามรายข้อ</h2></div>
+          <span class="tagline">ระบบแปลงทุกปัจจัยเป็นกลยุทธ์: S = ธำรง/ต่อยอด · W = พัฒนา/แก้ไข · O = ใช้ประโยชน์ · T = ป้องกัน/ลดผลกระทบ</span>
+        </div>
+        <div class="card-b" id="m1-body"></div>
+      </div>
+    </section>
+
+    <section class="method" id="m2">
+      <div class="card">
+        <div class="card-h">
+          <div><div class="eyebrow">Method 2</div><h2>กำหนดกลยุทธ์ด้วย TOWS Matrix</h2></div>
+          <span class="tagline">จับคู่ปัจจัยภายใน × ภายนอก ตามลำดับความสำคัญ (คะแนนสูงจับคู่ก่อน)</span>
+        </div>
+        <div class="card-b"><div class="tows" id="m2-body"></div></div>
+      </div>
+    </section>
+
+    <section class="method" id="m3">
+      <div class="card">
+        <div class="card-h">
+          <div><div class="eyebrow">Method 3</div><h2>กำหนดกลยุทธ์จากภาพรวมของผลการวิเคราะห์ SWOT</h2></div>
+          <span class="tagline">คำนวณคะแนนถ่วงน้ำหนัก → ระบุตำแหน่งเชิงกลยุทธ์ → เสนอทิศทางและชุดกลยุทธ์</span>
+        </div>
+        <div class="card-b" id="m3-body"></div>
+      </div>
+    </section>
+
+    <section class="method" id="m4">
+      <div class="card">
+        <div class="card-h">
+          <div><div class="eyebrow">Summary</div><h2>สรุปรวมกลยุทธ์จากทั้ง 3 วิธี และจัดลำดับกลยุทธ์ที่ควรเลือก (Top 5 Strategies)</h2></div>
+          <span class="tagline">จัดลำดับจาก น้ำหนักปัจจัยต้นทาง + ความสอดคล้องกับตำแหน่งเชิงกลยุทธ์ + การกระจายแหล่งที่มา</span>
+        </div>
+        <div class="card-b" id="m4-body"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span class="noprint">* กลยุทธ์ที่ระบบเสนอเป็น "ร่างตั้งต้น" สำหรับนำเข้าเวทีทบทวนกลยุทธ์ของหน่วยงาน ควรปรับถ้อยคำและจัดลำดับความสำคัญร่วมกับทีมก่อนบรรจุลงแผนปฏิบัติการ</span>
+</footer>
+
+<script>
+/* ============================================================
+   SWOT → Strategy Generator  (single-file, offline)
+   ============================================================ */
+'use strict';
+
+/* ---------- Unit catalog with seed SWOT (36 หน่วยงาน) ---------- */
+const UNITS = {
+mfg:{name:'ฝ่ายทรัพยากรบุคคล — โรงงานอุตสาหกรรมการผลิต',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'ระบบงานธุรการบุคคลและ Payroll แม่นยำ จ่ายค่าจ้างตรงเวลาไม่เคยผิดพลาดรุนแรง',score:4},{text:'ความสัมพันธ์กับหัวหน้างานสายการผลิตดี ประสานแก้ปัญหาหน้างานได้เร็ว',score:4},{text:'ระบบความปลอดภัยและ จป. ทำงานร่วมกับ HR ชัดเจน อุบัติเหตุลดลงต่อเนื่อง',score:3},{text:'มีหลักสูตรปฐมนิเทศและสอนงาน (OJT) มาตรฐานเดียวกันทุกแผนก',score:3}],
+W:[{text:'อัตราการลาออกของพนักงานรายวันปีแรกสูง ต้นทุนสรรหาซ้ำซาก',score:5},{text:'ข้อมูล HR กระจายหลายไฟล์ Excel ยังไม่มีระบบ HRIS กลาง',score:5},{text:'หัวหน้างานระดับต้นขาดทักษะบริหารคน ใช้อำนาจมากกว่าโค้ชชิ่ง',score:4},{text:'แผนสืบทอดตำแหน่งช่างเทคนิคอาวุโสยังไม่มี ความรู้ผูกกับตัวบุคคล',score:4}],
+O:[{text:'กองทุนพัฒนาฝีมือแรงงานและสิทธิลดหย่อนภาษีฝึกอบรมใช้ได้เต็มสิทธิ',score:5},{text:'โครงการทวิภาคีกับวิทยาลัยเทคนิคในพื้นที่ป้อนช่างฝีมือได้ต่อเนื่อง',score:4},{text:'ระบบ HRIS สำเร็จรูปราคาจับต้องได้สำหรับโรงงานขนาดกลาง',score:4},{text:'นโยบายส่งเสริมแรงงานต่างด้าวถูกกฎหมาย (MOU) ช่วยเติมกำลังคนสายการผลิต',score:4}],
+T:[{text:'การปรับขึ้นค่าแรงขั้นต่ำกระทบโครงสร้างค่าจ้างทั้งระบบ',score:4},{text:'โรงงานเปิดใหม่ในนิคมใกล้เคียงแย่งชิงแรงงานฝีมือด้วยค่าตอบแทนสูงกว่า',score:4},{text:'เครื่องจักรอัตโนมัติเข้ามาแทนที่ ต้อง Reskill พนักงานจำนวนมาก',score:3},{text:'แรงงานรุ่นใหม่ไม่นิยมงานโรงงาน เข้ากะยาก',score:3}]}},
+auto:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจยานยนต์และชิ้นส่วน',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'พนักงานฝ่ายผลิตมีทักษะมาตรฐานสากล (IATF/TPS) ผ่านการรับรองครบ',score:5},{text:'แรงงานสัมพันธ์กับสหภาพแรงงานอยู่ในระดับดี เจรจาข้อตกลงสำเร็จทุกปี',score:4},{text:'โครงสร้างค่าตอบแทนและสวัสดิการแข่งขันได้ในนิคมอุตสาหกรรม',score:4},{text:'ระบบประเมินทักษะรายตำแหน่ง (Skill Matrix) ใช้จริงทั้งโรงงาน',score:4}],
+W:[{text:'ทักษะพนักงานผูกกับสายการผลิตเครื่องยนต์สันดาป ยังไม่พร้อมรองรับ EV',score:5},{text:'รายได้พนักงานพึ่งพาค่าล่วงเวลาสูง เมื่อยอดผลิตลดกระทบขวัญกำลังใจแรง',score:4},{text:'พนักงานอายุงานเฉลี่ยสูง ต้นทุนค่าจ้างสะสมและความยืดหยุ่นต่ำ',score:3},{text:'การสื่อสารการเปลี่ยนแปลงองค์กรยังไปไม่ถึงพนักงานหน้างาน',score:2}],
+O:[{text:'มาตรการรัฐสนับสนุนการผลิต EV และเงินอุดหนุน Reskill/Upskill แรงงานยานยนต์',score:4},{text:'สถาบันยานยนต์และค่ายรถแม่มีหลักสูตรถ่ายทอดเทคโนโลยีใหม่',score:4},{text:'เครือข่ายผู้ผลิตชิ้นส่วน (Cluster) แลกเปลี่ยนแนวปฏิบัติ HR ระหว่างกัน',score:3},{text:'ระบบ e-Learning ช่วยกระจายการฝึกอบรมข้ามกะได้ทั่วถึง',score:2}],
+T:[{text:'การเปลี่ยนผ่านสู่ EV อาจลดชิ้นส่วนที่ผลิต กระทบตำแหน่งงานจำนวนมาก',score:5},{text:'คำสั่งซื้อผันผวนตามเศรษฐกิจโลก เสี่ยงต้องลดกำลังคนกะทันหัน',score:4},{text:'ข้อพิพาทแรงงานในอุตสาหกรรมอาจลุกลามสร้างแรงกดดันการเจรจา',score:4},{text:'คู่แข่งต่างชาติย้ายฐานผลิตเข้ามาพร้อมแย่งวิศวกรและช่างฝีมือ',score:4}]}},
+food:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจอาหารและเครื่องดื่มแปรรูป',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'ระบบฝึกอบรมสุขลักษณะและมาตรฐาน GMP/HACCP เข้มแข็ง ผ่าน Audit ลูกค้าทุกครั้ง',score:5},{text:'บริหารแรงงานต่างด้าวถูกกฎหมายครบวงจร (MOU) มีล่ามและระบบดูแลชัดเจน',score:5},{text:'สวัสดิการพื้นฐานครบ (รถรับส่ง ข้าวฟรี หอพัก) เป็นจุดขายรับคนได้เร็ว',score:4},{text:'ทีม HR มีประสบการณ์บริหารกำลังคนตามฤดูกาลวัตถุดิบได้คล่องตัว',score:4}],
+W:[{text:'การพึ่งพาแรงงานต่างด้าวสัดส่วนสูง เสี่ยงเมื่อนโยบายรัฐเปลี่ยน',score:4},{text:'พนักงานคนไทยระดับหัวหน้าไลน์มีน้อย ขาดคนกลางสื่อสารสองภาษา',score:4},{text:'งานเย็น/งานกลิ่นแรงทำให้สรรหาคนยากในบางแผนก',score:3},{text:'ระบบบันทึกเวลาหลายโรงงานยังไม่รวมศูนย์ ตรวจสอบ OT ล่าช้า',score:3}],
+O:[{text:'อุตสาหกรรมอาหารส่งออกเติบโต ลูกค้าใหม่สร้างความมั่นคงของการจ้างงาน',score:5},{text:'มาตรฐานแรงงานที่ดี (GLP/แรงงานเป็นธรรม) ใช้เป็นแต้มต่อรับออเดอร์ยุโรป',score:4},{text:'ระบบ MOU นำเข้าแรงงานรอบใหม่เปิดโควตาเพิ่ม',score:4},{text:'เทคโนโลยีบันทึกเวลา/Payroll กลางเชื่อมหลายไซต์ได้ในต้นทุนต่ำลง',score:4}],
+T:[{text:'การตรวจประเมินด้านสิทธิแรงงานจากลูกค้าต่างชาติเข้มงวดขึ้นทุกปี',score:4},{text:'ค่าธรรมเนียมและขั้นตอนนำเข้าแรงงานต่างด้าวสูงขึ้น',score:4},{text:'โรงงานคู่แข่งในพื้นที่แย่งแรงงานด้วยเบี้ยขยันและ OT ที่สูงกว่า',score:3},{text:'วัตถุดิบผันผวนตามฤดูกาล กระทบชั่วโมงงานและรายได้พนักงาน',score:3}]}},
+energy:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจพลังงานและปิโตรเคมี',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'ค่าตอบแทนและสวัสดิการอยู่กลุ่มบนของตลาด รักษาคนเก่งได้ดี',score:5},{text:'วัฒนธรรมความปลอดภัย (Process Safety) ฝังรากลึก อุบัติการณ์ร้ายแรงเป็นศูนย์ต่อเนื่อง',score:5},{text:'ระบบพัฒนาสายอาชีพวิศวกร (Career Path) ชัดเจนถึงระดับผู้เชี่ยวชาญ',score:4},{text:'มีสถาบันฝึกอบรมภายในและสนามฝึกปฏิบัติของตนเอง',score:3}],
+W:[{text:'โครงสร้างอายุพนักงานสูง ผู้เชี่ยวชาญจำนวนมากจะเกษียณใน 5 ปี',score:5},{text:'กระบวนการ HR เป็นทางการหลายขั้นตอน ตัดสินใจช้าไม่ทันธุรกิจใหม่',score:4},{text:'การหมุนเวียนงานข้ามหน่วยธุรกิจยังน้อย คนเก่งกระจุกในบางสายงาน',score:3},{text:'ภาพลักษณ์อุตสาหกรรมดั้งเดิมทำให้ดึงดูดคนรุ่นใหม่สาย Digital ยาก',score:3}],
+O:[{text:'ธุรกิจพลังงานสะอาด/ไฮโดรเจนเปิดตำแหน่งงานใหม่ที่ท้าทายดึงดูดคนรุ่นใหม่',score:4},{text:'ความร่วมมือกับมหาวิทยาลัยชั้นนำสร้างท่อกำลังคนวิศวกรรมเฉพาะทาง',score:3},{text:'แพลตฟอร์มการเรียนรู้ดิจิทัลถ่ายโอนความรู้จากผู้ใกล้เกษียณ (Knowledge Capture)',score:3},{text:'นโยบาย Net Zero สร้างงบพัฒนาทักษะสีเขียว (Green Skills) จำนวนมาก',score:3}],
+T:[{text:'การเปลี่ยนผ่านพลังงานทำให้บางหน่วยธุรกิจหดตัว ต้องเกลี่ยกำลังคนครั้งใหญ่',score:5},{text:'บริษัทเทคโนโลยีและสตาร์ทอัพแย่งชิงวิศวกรข้อมูลและดิจิทัล',score:4},{text:'กฎระเบียบสิ่งแวดล้อมและความปลอดภัยเข้มขึ้น เพิ่มภาระการอบรมบังคับ',score:4},{text:'ความผันผวนราคาพลังงานโลกกดดันการควบคุมต้นทุนบุคลากร',score:4}]}},
+constr:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจก่อสร้างและพัฒนาอสังหาริมทรัพย์',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'ทีม HR มีประสบการณ์เปิด-ปิดหน่วยงานก่อสร้างตามโครงการได้รวดเร็ว',score:4},{text:'ฐานข้อมูลผู้รับเหมาช่วงและหัวหน้าช่างที่เชื่อถือได้สะสมมายาวนาน',score:4},{text:'ระบบเบิกจ่ายค่าแรงรายงวดถูกต้อง สร้างความเชื่อมั่นให้คนงาน',score:3},{text:'มีเจ้าหน้าที่ความปลอดภัยประจำทุกไซต์ตามกฎหมาย',score:2}],
+W:[{text:'แรงงานรายวันหมุนเวียนสูงมาก ตามหัวหน้าช่างย้ายไซต์ได้ทุกเมื่อ',score:5},{text:'ไซต์งานกระจายหลายจังหวัด การกำกับมาตรฐาน HR และความปลอดภัยไม่ทั่วถึง',score:4},{text:'วิศวกรสนามรุ่นใหม่ลาออกสูงจากภาระงานหนักและอยู่ประจำไซต์ห่างไกล',score:4},{text:'เอกสารแรงงานต่างด้าวของผู้รับเหมาช่วงตรวจสอบยาก เสี่ยงผิดกฎหมายร่วม',score:4}],
+O:[{text:'โครงการเมกะโปรเจกต์ภาครัฐสร้างงานต่อเนื่องหลายปี',score:4},{text:'แอปบริหารแรงงานรายวันและจ่ายค่าแรงดิจิทัลช่วยคุมไซต์กระจายได้',score:3},{text:'หลักสูตรรับรองฝีมือช่าง (มาตรฐานฝีมือแรงงาน) ช่วยยกระดับและผูกใจคน',score:3},{text:'เทคโนโลยีก่อสร้างสำเร็จรูป (Precast) ลดการพึ่งพาแรงงานฝีมือหน้างาน',score:3}],
+T:[{text:'การขาดแคลนแรงงานก่อสร้างรุนแรงขึ้นทุกปี ค่าแรงจริงในตลาดสูงกว่าโครงสร้าง',score:5},{text:'อุบัติเหตุร้ายแรงในไซต์นำมาซึ่งความรับผิดทางกฎหมายและชื่อเสียง',score:4},{text:'เศรษฐกิจอสังหาชะลอตัว โครงการหยุดกะทันหันต้องลดคนเร็ว',score:4},{text:'การตรวจแรงงานและความปลอดภัยจากภาครัฐเข้มงวดขึ้น',score:3}]}},
+agri:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจการเกษตรและฟาร์มปศุสัตว์',group:'กลุ่มการผลิตและอุตสาหกรรม',swot:{
+S:[{text:'พนักงานท้องถิ่นผูกพันกับองค์กร อัตราลาออกของพนักงานประจำต่ำ',score:4},{text:'มีระบบสวัสดิการที่พักและผลผลิตราคาพนักงาน ช่วยรักษาคนในพื้นที่ห่างไกล',score:3},{text:'หัวหน้าฟาร์มมีประสบการณ์สูง ถ่ายทอดงานภาคปฏิบัติได้ดี',score:3},{text:'ความสัมพันธ์กับชุมชนรอบฟาร์มดี รับคนในพื้นที่เป็นหลัก',score:3}],
+W:[{text:'โครงสร้างอายุแรงงานสูง คนหนุ่มสาวไม่เข้าสู่งานฟาร์ม',score:5},{text:'ค่าตอบแทนต่ำกว่าอุตสาหกรรมอื่น แข่งขันดึงคนที่มีทักษะไม่ได้',score:4},{text:'งาน HR ยังเป็นระบบเครือญาติ ขาดโครงสร้างตำแหน่งและเกณฑ์ประเมินชัดเจน',score:4},{text:'ฟาร์มอยู่ห่างไกล การจัดฝึกอบรมและกิจกรรมพัฒนาทำได้จำกัด',score:4}],
+O:[{text:'เกษตรอัจฉริยะ (Smart Farming) ลดการพึ่งแรงงานหนักและดึงดูดคนรุ่นใหม่สายเทคโนโลยี',score:4},{text:'มาตรฐานฟาร์ม (GAP/ปศุสัตว์ OK) สร้างระบบงานที่วัดได้และพัฒนาคนไปพร้อมกัน',score:3},{text:'โครงการรัฐสนับสนุนจ้างงานเกษตรและพัฒนาทักษะแรงงานภาคเกษตร',score:3},{text:'เครือข่ายมหาวิทยาลัยเกษตรในภูมิภาคพร้อมส่งนักศึกษาฝึกงานประจำฟาร์ม',score:3}],
+T:[{text:'โรคระบาดสัตว์อาจทำให้ต้องหยุดกิจการบางส่วนและเลิกจ้างกะทันหัน',score:5},{text:'ภัยแล้ง/น้ำท่วมกระทบผลผลิตและความมั่นคงรายได้ของพนักงาน',score:4},{text:'แรงงานภาคเกษตรไหลออกสู่เมืองและภาคบริการต่อเนื่อง',score:4},{text:'กฎระเบียบสิ่งแวดล้อมและสวัสดิภาพสัตว์เพิ่มภาระการอบรมและกำกับ',score:3}]}},
+retail:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจค้าปลีกและห้างสรรพสินค้า',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'ระบบสรรหาหน้าร้านรวดเร็ว เปิดรับ-เริ่มงานได้ภายในสัปดาห์',score:4},{text:'หลักสูตรมาตรฐานบริการ (Service Standard) อบรมพนักงานใหม่ทุกคนก่อนลงพื้นที่',score:4},{text:'มีเส้นทางเติบโตจากพนักงานหน้าร้านสู่ผู้จัดการสาขาที่เห็นตัวอย่างจริง',score:3},{text:'ทีม HR ภูมิภาคดูแลสาขาใกล้ชิด รู้ปัญหาหน้างานเร็ว',score:3}],
+W:[{text:'อัตราลาออกพนักงานหน้าร้านสูงมาก โดยเฉพาะ 90 วันแรก',score:5},{text:'การจัดตารางกะหลายสาขายังทำมือ ขัดแย้งเรื่องความเป็นธรรมบ่อย',score:4},{text:'พนักงานพาร์ทไทม์ผูกพันต่ำ คุณภาพบริการไม่สม่ำเสมอ',score:4},{text:'ผู้จัดการสาขาใหม่ขาดทักษะบริหารคน ปัญหาร้องเรียนภายในกระจุกบางสาขา',score:4}],
+O:[{text:'ระบบจัดตารางกะอัตโนมัติและแอปพนักงานช่วยลดงานเอกสารและข้อขัดแย้ง',score:5},{text:'แนวโน้มค้าปลีก Omni-channel เปิดตำแหน่งงานใหม่ที่ดึงดูดคนรุ่นใหม่',score:4},{text:'ความร่วมมือกับสถาบันอาชีวะ (ทวิภาคีค้าปลีก) ป้อนพนักงานต่อเนื่อง',score:4},{text:'ฐานข้อมูลพนักงานขนาดใหญ่ต่อยอดวิเคราะห์การลาออกล่วงหน้าได้',score:4}],
+T:[{text:'อีคอมเมิร์ซกดดันยอดขายหน้าร้าน เสี่ยงปิดสาขาและเกลี่ยกำลังคน',score:4},{text:'ค่าแรงขั้นต่ำปรับขึ้นกระทบต้นทุนธุรกิจที่ใช้คนจำนวนมากโดยตรง',score:4},{text:'ธุรกิจบริการอื่นแย่งแรงงานกลุ่มเดียวกันด้วยค่าตอบแทนใกล้เคียง',score:3},{text:'พฤติกรรมลูกค้าเปลี่ยนเร็ว ทักษะพนักงานตามไม่ทัน',score:3}]}},
+ecom:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจอีคอมเมิร์ซและแพลตฟอร์มดิจิทัล',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'วัฒนธรรมองค์กรคล่องตัว ตัดสินใจเร็ว ดึงดูดคนรุ่นใหม่ได้ดี',score:5},{text:'ระบบ HR Tech ครบวงจร (สมัครงานถึง Payroll) ข้อมูลเรียลไทม์',score:5},{text:'นโยบายทำงานแบบ Hybrid ยืดหยุ่น เป็นจุดขายในการสรรหา',score:4},{text:'ทีมสรรหาสาย Tech มีเครือข่ายและปิดตำแหน่งได้เร็วกว่าตลาด',score:4}],
+W:[{text:'พนักงานคลังสินค้ารายวันหมุนเวียนสูงในช่วงแคมเปญใหญ่',score:4},{text:'ภาระงานหนักช่วงพีคเสี่ยงภาวะหมดไฟของทีมหลัก',score:4},{text:'โครงสร้างตำแหน่งและเงินเดือนยังไม่นิ่ง ปรับบ่อยจนพนักงานสับสน',score:3},{text:'ผู้จัดการเลื่อนขั้นเร็วตามการเติบโต แต่ทักษะบริหารคนยังไม่พร้อม',score:3}],
+O:[{text:'ตลาดอีคอมเมิร์ซไทยยังเติบโตสองหลัก รองรับการขยายทีมต่อเนื่อง',score:5},{text:'แรงงานกิ๊ก (Gig Workforce) ช่วยรองรับช่วงพีคโดยไม่เพิ่มคนประจำ',score:4},{text:'AI ช่วยคัดกรองใบสมัครและตอบคำถามพนักงานอัตโนมัติ',score:4},{text:'คนเก่งจากอุตสาหกรรมดั้งเดิมต้องการย้ายเข้าสายดิจิทัลจำนวนมาก',score:4}],
+T:[{text:'สงครามแย่งชิง Tech Talent กับแพลตฟอร์มต่างชาติที่ให้ค่าตอบแทนสูงกว่า',score:5},{text:'กฎหมายคุ้มครองแรงงานแพลตฟอร์ม/กิ๊กอาจเพิ่มต้นทุนและข้อผูกพันใหม่',score:4},{text:'การแข่งขันเผาเงินของแพลตฟอร์มทำให้ความมั่นคงของงานผันผวน',score:3},{text:'ข้อมูลพนักงานจำนวนมากเสี่ยงต่อเหตุละเมิด PDPA',score:3}]}},
+logis:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจโลจิสติกส์และขนส่ง',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'ระบบอบรมความปลอดภัยการขับขี่และตรวจแอลกอฮอล์ก่อนงานเข้มงวด',score:4},{text:'ค่าตอบแทนพนักงานขับรถผูกกับเที่ยววิ่งชัดเจน โปร่งใส ตรวจสอบได้',score:4},{text:'ศูนย์กระจายสินค้ามีทีม HR ประจำ ดูแลพนักงานคลังใกล้ชิด',score:3},{text:'มีระบบ GPS/กล้องติดรถช่วยดูแลพฤติกรรมขับขี่และความเป็นธรรมเมื่อเกิดเหตุ',score:3}],
+W:[{text:'ขาดแคลนพนักงานขับรถบรรทุกใบขับขี่ ท.2 ขึ้นไปเรื้อรัง',score:5},{text:'ชั่วโมงทำงานยาว เสี่ยงเกินเกณฑ์กฎหมายขนส่งและความล้าสะสม',score:5},{text:'พนักงานคลังรายวันหมุนเวียนสูงช่วงเทศกาล คุณภาพงานแกว่ง',score:4},{text:'หัวหน้าศูนย์ต่างจังหวัดบริหารคนตามสไตล์ตนเอง มาตรฐานไม่เดียวกัน',score:3}],
+O:[{text:'อีคอมเมิร์ซโตต่อเนื่อง ปริมาณงานขนส่งเพิ่มสร้างความมั่นคงการจ้าง',score:5},{text:'กองทุนพัฒนาฝีมือแรงงานสนับสนุนหลักสูตรขับขี่ปลอดภัยและใบขับขี่ขนส่ง',score:4},{text:'ระบบบริหารเที่ยววิ่งอัตโนมัติช่วยจัดคน-จัดรถเป็นธรรมและคุมชั่วโมงงาน',score:4},{text:'พันธมิตรแพลตฟอร์มไรเดอร์เสริมกำลังส่งช่วงพีคแบบยืดหยุ่น',score:3}],
+T:[{text:'อุบัติเหตุบนถนนคือความเสี่ยงต่อชีวิตพนักงานและความรับผิดของบริษัท',score:5},{text:'คู่แข่งแย่งพนักงานขับรถด้วยค่าเที่ยวสูงกว่าตลอดเวลา',score:4},{text:'ราคาน้ำมันผันผวนกดดันการควบคุมต้นทุนรวมถึงค่าตอบแทน',score:3},{text:'กฎหมายชั่วโมงพักผู้ขับขี่บังคับเข้ม กระทบการจัดรอบวิ่งเดิม',score:3}]}},
+hotel:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจโรงแรมและรีสอร์ท',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'พนักงานมีใจบริการ (Service Mind) และผลคะแนนรีวิวด้านพนักงานสูงต่อเนื่อง',score:5},{text:'ระบบ Cross-training ข้ามแผนกช่วยเกลี่ยกำลังคนตามฤดูกาลเข้าพัก',score:4},{text:'มีโปรแกรม Management Trainee สร้างหัวหน้างานจากคนในได้จริง',score:4},{text:'สวัสดิการอาหารพนักงานและชุดยูนิฟอร์มครบ ลดภาระค่าครองชีพ',score:4}],
+W:[{text:'ค่าตอบแทนพื้นฐานต่ำ พึ่ง Service Charge ที่ผันผวนตามฤดูกาล',score:4},{text:'ทักษะภาษาที่สามของพนักงานยังไม่พอรองรับนักท่องเที่ยวตลาดใหม่',score:4},{text:'พนักงานรุ่นใหม่ไม่นิยมงานกะและวันหยุดไม่ตรงเสาร์อาทิตย์',score:3},{text:'ระบบประเมินผลยังอิงหัวหน้าเป็นหลัก ขาดข้อมูลพฤติกรรมบริการจริง',score:3}],
+O:[{text:'การท่องเที่ยวฟื้นตัวแข็งแรง อัตราเข้าพักสูงสร้างรายได้และ Service Charge ดี',score:4},{text:'สถาบันการโรงแรมและโครงการทวิภาคีป้อนนักศึกษาฝึกงานตลอดปี',score:3},{text:'แพลตฟอร์ม e-Learning ด้านภาษาและบริการเรียนได้ระหว่างกะ',score:3},{text:'เชนโรงแรมนานาชาติเข้ามาบริหาร เปิดโอกาสเรียนรู้มาตรฐานระดับโลก',score:3}],
+T:[{text:'โรงแรมเปิดใหม่และเรือสำราญ/ต่างประเทศแย่งพนักงานมีประสบการณ์ด้วยค่าจ้างสูง',score:5},{text:'ฤดูกาลท่องเที่ยวผันผวนจากปัจจัยภายนอก (เศรษฐกิจโลก ค่าเงิน โรคระบาด)',score:4},{text:'รีวิวออนไลน์เชิงลบเกี่ยวกับพนักงานกระทบแบรนด์รุนแรงและรวดเร็ว',score:4},{text:'ต้นทุนครองชีพในเมืองท่องเที่ยวสูง พนักงานย้ายกลับภูมิลำเนา',score:4}]}},
+resto:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจร้านอาหารเครือข่าย (Food Chain)',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'คู่มือปฏิบัติงานมาตรฐาน (SOP) ทุกตำแหน่ง ฝึกพนักงานใหม่พร้อมงานใน 7 วัน',score:4},{text:'ระบบผู้จัดการร้านฝึกหัด (MT) สร้างผู้จัดการรองรับการขยายสาขา',score:4},{text:'ค่าตอบแทนจ่ายรายสัปดาห์สำหรับพาร์ทไทม์ เป็นจุดขายรับคนเร็ว',score:3},{text:'แบรนด์เป็นที่รู้จัก ผู้สมัครเดินเข้ามาเองต่อเนื่อง',score:3}],
+W:[{text:'อัตราลาออกรวมสูงที่สุดกลุ่มธุรกิจ พนักงานอยู่เฉลี่ยไม่ถึงหนึ่งปี',score:5},{text:'พึ่งพาพาร์ทไทม์นักศึกษาสัดส่วนสูง ตารางสอบกระทบกำลังคนพร้อมกัน',score:4},{text:'งานร้อน เหนื่อย ยืนนาน ทำให้สรรหาครัวยากขึ้นเรื่อย ๆ',score:4},{text:'ผู้จัดการร้านภาระหลายด้าน เวลาโค้ชลูกทีมน้อย วัฒนธรรมต่างกันรายสาขา',score:4}],
+O:[{text:'ระบบจัดตารางกะและจ่ายค่าแรงผ่านแอปลดงานเอกสารผู้จัดการร้าน',score:4},{text:'โครงการทวิภาคีสายอาหารกับอาชีวะป้อนพนักงานครัวมีพื้นฐาน',score:3},{text:'ครัวกลางและเครื่องครัวอัตโนมัติลดทักษะที่ต้องฝึกหน้าร้าน',score:3},{text:'กระแส Food Delivery ขยายยอดขายโดยไม่ต้องเพิ่มพนักงานหน้าร้านมาก',score:3}],
+T:[{text:'การแข่งขันแย่งพนักงานบริการรายชั่วโมงรุนแรง ค่าแรงจริงขยับตลอด',score:5},{text:'ค่าแรงขั้นต่ำและต้นทุนวัตถุดิบขึ้นพร้อมกัน บีบงบด้านคน',score:4},{text:'รีวิว/คลิปไวรัลด้านบริการหรือสุขอนามัยกระทบแบรนด์ทั้งเครือทันที',score:4},{text:'แพลตฟอร์มเดลิเวอรีดึงคนไปเป็นไรเดอร์รายได้รายวันสูงกว่า',score:4}]}},
+tour:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจท่องเที่ยวและบริการนำเที่ยว',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'ฐานข้อมูลมัคคุเทศก์ฟรีแลนซ์ที่มีใบอนุญาตพร้อมเรียกใช้ตามฤดูกาล',score:4},{text:'ทีมงานหลักมีประสบการณ์ออกแบบเส้นทางและแก้ปัญหาหน้างานสูง',score:4},{text:'ความสัมพันธ์ที่ดีกับพันธมิตร (โรงแรม รถเช่า ร้านอาหาร) ทั่วประเทศ',score:3},{text:'ผ่านวิกฤตโควิดมาได้ ทีมที่เหลืออยู่ผูกพันองค์กรสูง',score:3}],
+W:[{text:'บุคลากรประจำมีน้อย งานกระจุกตัวและไม่มีตัวสำรองตำแหน่งสำคัญ',score:5},{text:'รายได้ทีมขายและไกด์ผันผวนตามฤดูกาล รักษาคนเก่งยาก',score:4},{text:'ขาดคนรุ่นใหม่ด้านการตลาดดิจิทัลและการขายออนไลน์',score:4},{text:'ระบบ HR ยังใช้เอกสาร ไม่มีฐานข้อมูลบุคลากรและฟรีแลนซ์เป็นระบบ',score:3}],
+O:[{text:'การท่องเที่ยวไทยฟื้นตัวและนโยบายฟรีวีซ่าดึงนักท่องเที่ยวตลาดใหม่',score:5},{text:'กรมการท่องเที่ยวเปิดอบรม/สอบใบอนุญาตมัคคุเทศก์รุ่นใหม่ต่อเนื่อง',score:4},{text:'เทรนด์ท่องเที่ยวเฉพาะทาง (สุขภาพ ผจญภัย ยั่งยืน) เปิดงานทักษะใหม่',score:4},{text:'แพลตฟอร์มจองออนไลน์ช่วยธุรกิจเล็กเข้าถึงลูกค้าโดยไม่ต้องเพิ่มทีมขายมาก',score:3}],
+T:[{text:'เหตุการณ์ภายนอก (โรคระบาด ภัยพิบัติ การเมือง) หยุดรายได้ทั้งอุตสาหกรรมได้ทันที',score:5},{text:'มัคคุเทศก์ภาษาหายาก (จีน เกาหลี รัสเซีย) ถูกแย่งตัวด้วยค่าจ้างรายวันสูง',score:4},{text:'นักท่องเที่ยวจองตรงกับแพลตฟอร์ม ลดบทบาทบริษัททัวร์แบบเดิม',score:3},{text:'กฎระเบียบธุรกิจนำเที่ยวและการใช้ไกด์ถูกกฎหมายตรวจเข้มขึ้น',score:3}]}},
+beauty:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจความงามและคลินิกเสริมความงาม',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'ระบบค่าตอบแทนจูงใจ (Incentive ตามยอด) ดึงดูดทีมขายและที่ปรึกษาความงามเก่ง',score:5},{text:'หลักสูตรอบรมมาตรฐานหัตถการและการบริการก่อนปฏิบัติงานจริงทุกสาขา',score:5},{text:'แบรนด์แข็งแรงในโซเชียล ผู้สมัครรุ่นใหม่อยากร่วมงานจำนวนมาก',score:4},{text:'ทีมแพทย์ที่ปรึกษาประจำช่วยกำกับมาตรฐานวิชาชีพทุกสาขา',score:4}],
+W:[{text:'การพึ่งยอดขายทำให้บางสาขาเน้นขายเกินจริง เสี่ยงข้อร้องเรียน',score:4},{text:'พยาบาลวิชาชีพประจำคลินิกหายากและค่าตัวสูงขึ้นเร็ว',score:4},{text:'ความรู้เทคนิคใหม่กระจุกที่แพทย์/ครูฝึกไม่กี่คน ขยายสาขาช้า',score:3},{text:'อัตราหมุนเวียนพนักงานขายสูงเมื่อคู่แข่งให้ค่าคอมมิชชันดีกว่า',score:3}],
+O:[{text:'ตลาดความงามและ Wellness เติบโตต่อเนื่องทั้งลูกค้าไทยและต่างชาติ',score:5},{text:'Medical Tourism เปิดโอกาสพัฒนาทีมสองภาษาและบริการพรีเมียม',score:4},{text:'สถาบันรับรองหลักสูตรผู้ช่วยความงามสร้างกำลังคนป้อนธุรกิจ',score:4},{text:'ระบบ CRM และข้อมูลลูกค้าช่วยออกแบบ Incentive ที่เป็นธรรมขึ้น',score:4}],
+T:[{text:'การแข่งขันแย่งชิงแพทย์และพยาบาลความงามด้วยค่าตอบแทนสูงมาก',score:5},{text:'ดราม่าโซเชียลหรือคดีความจากหัตถการกระทบแบรนด์และขวัญกำลังใจทีม',score:4},{text:'กฎหมายควบคุมคลินิกและการโฆษณาเข้มงวดขึ้น บุคลากรต้องอบรมเพิ่ม',score:3},{text:'เทคโนโลยีเครื่องมือเปลี่ยนเร็ว ทักษะเดิมล้าสมัยใน 2-3 ปี',score:3}]}},
+outsrc:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจรักษาความปลอดภัยและบริการจ้างเหมา (Outsourcing)',group:'กลุ่มการค้าและบริการ',swot:{
+S:[{text:'ระบบสรรหาและส่งกำลังพลทดแทนหน้างานลูกค้าได้ภายใน 24 ชั่วโมง',score:4},{text:'มีศูนย์ฝึกอบรม รปภ. ตามหลักสูตรที่กฎหมายกำหนดเป็นของตนเอง',score:4},{text:'ระบบตรวจเยี่ยมจุดปฏิบัติงานและสายตรวจกลางคืนสม่ำเสมอ',score:3},{text:'ประสบการณ์บริหารสัญญาแรงงานเหมาค่าแรงตามมาตรา 11/1 ถูกต้อง',score:3}],
+W:[{text:'อัตราหมุนเวียนกำลังพลสูงมาก ยอดขาดงานรายวันต้องเกลี่ยคนตลอด',score:5},{text:'มาร์จิ้นต่อหัวต่ำ งบพัฒนาบุคลากรและสวัสดิการเสริมมีจำกัด',score:5},{text:'คุณภาพกำลังพลไม่สม่ำเสมอ ข้อร้องเรียนจากลูกค้ากระจุกบางจุด',score:4},{text:'หัวหน้าชุดหน้างานขาดทักษะรายงานและจัดการเหตุด้วยเทคโนโลยี',score:3}],
+O:[{text:'องค์กรต่าง ๆ หันมาใช้บริการจ้างเหมามากขึ้นเพื่อลดภาระบริหารคนเอง',score:4},{text:'เทคโนโลยีลงเวลา/ลาดตระเวนดิจิทัลพิสูจน์คุณภาพงานให้ลูกค้าเห็นจริง',score:4},{text:'กองทุนพัฒนาฝีมือแรงงานช่วยลดต้นทุนการอบรมบังคับตามกฎหมาย',score:3},{text:'งานระบบ (กล้อง AI + คน) เปิดบริการมูลค่าสูงกว่าการวางกำลังพลอย่างเดียว',score:3}],
+T:[{text:'ลูกค้ากดราคาค่าบริการขณะค่าแรงขั้นต่ำและต้นทุนประกันสังคมสูงขึ้น',score:5},{text:'ความรับผิดตามกฎหมายเมื่อกำลังพลก่อเหตุหรือเกิดเหตุร้ายแรงในพื้นที่ลูกค้า',score:4},{text:'คู่แข่งรายย่อยตัดราคาโดยหลบเลี่ยงสวัสดิการตามกฎหมาย',score:4},{text:'กฎหมายธุรกิจรักษาความปลอดภัยกำหนดคุณสมบัติ/การอบรมเข้มขึ้น',score:3}]}},
+bank:{name:'ฝ่ายทรัพยากรบุคคล — ธนาคารและสถาบันการเงิน',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'ค่าตอบแทน สวัสดิการ และความมั่นคงอยู่ระดับแนวหน้าของตลาดแรงงาน',score:5},{text:'ระบบพัฒนาผู้นำและ Talent Program ต่อเนื่องหลายรุ่น พิสูจน์ผลจริง',score:5},{text:'งบและแพลตฟอร์ม Reskill ด้านดิจิทัล/ข้อมูลพร้อมสำหรับพนักงานทุกระดับ',score:4},{text:'แบรนด์นายจ้างแข็งแรง ใบสมัครต่อตำแหน่งสูงกว่าค่าเฉลี่ยอุตสาหกรรม',score:4}],
+W:[{text:'พนักงานสาขาจำนวนมากมีทักษะผูกกับธุรกรรมหน้าเคาน์เตอร์ที่กำลังหายไป',score:4},{text:'โครงสร้างองค์กรหลายชั้น การอนุมัติช้ากว่าฟินเทคคู่แข่ง',score:4},{text:'วัฒนธรรมหลีกเลี่ยงความเสี่ยงทำให้คนไม่กล้าทดลองสิ่งใหม่',score:3},{text:'ช่องว่างค่าตอบแทนสายเทคโนโลยีกับโครงสร้างแบงก์เดิมสร้างแรงตึงภายใน',score:3}],
+O:[{text:'บริการดิจิทัลแบงก์กิ้งเติบโต เปิดสายอาชีพใหม่ (Data, UX, Cyber) ดึงคนรุ่นใหม่',score:5},{text:'Virtual Bank และพันธมิตรฟินเทคเปิดโมเดลการทำงานและเรียนรู้ใหม่',score:4},{text:'พนักงานสาขาที่ลดบทบาทสามารถ Reskill เป็นที่ปรึกษาการเงิน/การลงทุนได้',score:4},{text:'ระบบ People Analytics คาดการณ์การลาออกและวางแผนสืบทอดแม่นยำขึ้น',score:4}],
+T:[{text:'ฟินเทคและบริษัทเทคโนโลยีแย่ง Talent สายข้อมูลและไอทีด้วยข้อเสนอสูงกว่า',score:4},{text:'การลดสาขาต่อเนื่องกดดันขวัญกำลังใจและภาระเกลี่ยตำแหน่งงาน',score:4},{text:'กฎเกณฑ์ผู้กำกับดูแล (ธปท./กลต.) เพิ่มภาระอบรมบังคับและใบอนุญาต',score:3},{text:'ภัยไซเบอร์ต้องการผู้เชี่ยวชาญเฉพาะที่ตลาดขาดแคลนหนัก',score:3}]}},
+insur:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจประกันชีวิตและประกันภัย',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'ระบบอบรมและสอบใบอนุญาตตัวแทน/นายหน้าครบวงจรภายในบริษัท',score:4},{text:'สายอาชีพพนักงานประจำ (พิจารณารับประกัน สินไหม คณิตศาสตร์ประกันภัย) ชัดเจน',score:4},{text:'ค่าตอบแทนทีมขายจูงใจสูง ดึงดูดนักขายเก่งจากหลายอุตสาหกรรม',score:3},{text:'มีระบบจรรยาบรรณและกำกับการขาย (Market Conduct) เข้มแข็ง',score:3}],
+W:[{text:'โครงสร้างอายุตัวแทนสูง การสรรหาตัวแทนรุ่นใหม่เข้าสู่อาชีพยากขึ้น',score:5},{text:'อัตราตัวแทนใหม่อยู่รอดปีแรกต่ำ ลงทุนอบรมแล้วสูญเปล่าจำนวนมาก',score:4},{text:'ทักษะดิจิทัลของทีมสนับสนุนยังตามแพลตฟอร์ม Insurtech ไม่ทัน',score:4},{text:'ระบบข้อมูลกำลังคนฝ่ายขายกับฝ่ายประจำแยกส่วน วิเคราะห์ภาพรวมยาก',score:3}],
+O:[{text:'สังคมสูงวัยดันความต้องการประกันสุขภาพ/บำนาญ เปิดตลาดงานขายเชิงที่ปรึกษา',score:5},{text:'แพลตฟอร์มขายดิจิทัลช่วยตัวแทนรุ่นใหม่เริ่มอาชีพได้เร็วขึ้น',score:4},{text:'คปภ. ส่งเสริมการพัฒนาบุคลากรประกันภัยพร้อมหลักสูตรกลาง',score:3},{text:'คนรุ่นใหม่สนใจอาชีพอิสระรายได้ไม่จำกัด หากออกแบบเส้นทางให้ทันสมัย',score:4}],
+T:[{text:'Insurtech และช่องทางขายตรงออนไลน์ลดบทบาทตัวแทนแบบดั้งเดิม',score:4},{text:'กฎเกณฑ์การเสนอขายเข้มงวด บทลงโทษการขายผิดจรรยาบรรณสูงขึ้น',score:4},{text:'ภาพลักษณ์เชิงลบของอาชีพตัวแทนในสื่อสังคมกระทบการสรรหา',score:4},{text:'บริษัทประกันคู่แข่งซื้อตัวทีมขายทั้งหน่วยด้วยโบนัสก้อนใหญ่',score:3}]}},
+tech:{name:'ฝ่ายทรัพยากรบุคคล — ธุรกิจเทคโนโลยีสารสนเทศและซอฟต์แวร์เฮาส์',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'นโยบายทำงาน Hybrid/Remote เต็มรูปแบบ ดึงดูด Developer ทั่วประเทศ',score:5},{text:'วัฒนธรรมเรียนรู้แข็งแรง มีงบคอร์สและใบรับรองรายบุคคลทุกปี',score:5},{text:'โครงสร้างเงินเดือนสาย Tech อ้างอิงตลาดและทบทวนทุกปี',score:4},{text:'กระบวนการสรรหาเร็ว ตัดสินใจจ้างภายในสองสัปดาห์',score:4}],
+W:[{text:'ทีมพึ่งพา Senior Developer ไม่กี่คน ความเสี่ยงกระจุกตัวสูง',score:4},{text:'Career Path สายบริหารกับสายเทคนิคยังไม่ชัด คนเก่งเติบโตแล้วชนเพดาน',score:4},{text:'ภาระงานโปรเจกต์ซ้อนทำให้เสี่ยงหมดไฟและงานคุณภาพแกว่ง',score:3},{text:'การถ่ายทอดความรู้ระหว่างโปรเจกต์ยังอยู่ในหัวคน ไม่เป็นระบบ',score:3}],
+O:[{text:'ความต้องการ Digital Transformation ของลูกค้าองค์กรยังเติบโตสูง',score:5},{text:'AI Coding Assistant เพิ่มผลิตภาพทีมพัฒนาโดยไม่ต้องเพิ่มคนตามสัดส่วนงาน',score:4},{text:'ฐานคนเก่งต่างจังหวัด/ต่างชาติเข้าถึงได้ผ่านการจ้างงานทางไกล',score:4},{text:'บูทแคมป์และมหาวิทยาลัยผลิตนักพัฒนารุ่นใหม่ป้อนตลาดมากขึ้น',score:4}],
+T:[{text:'สงครามค่าตัว Developer กับบริษัทต่างชาติที่จ้างรีโมทด้วยสกุลเงินแข็ง',score:5},{text:'เทคโนโลยีเปลี่ยนเร็ว ทักษะทีมล้าสมัยได้ในไม่กี่ปีหากหยุดพัฒนา',score:4},{text:'AI อาจลดความต้องการงานพัฒนาระดับต้น กระทบโครงสร้างทีมระยะยาว',score:3},{text:'ลูกค้ากดราคางานโปรเจกต์ ขณะต้นทุนค่าตัวคนสูงขึ้นสวนทาง',score:3}]}},
+phos:{name:'ฝ่ายทรัพยากรบุคคล — โรงพยาบาลเอกชน',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'ค่าตอบแทนวิชาชีพและสวัสดิการรักษาพยาบาลครอบครัวแข่งขันได้สูง',score:5},{text:'ระบบพัฒนาบุคลากรตามมาตรฐาน HA/JCI เข้มแข็ง มีชั่วโมงอบรมครบทุกวิชาชีพ',score:5},{text:'แบรนด์โรงพยาบาลแข็งแรง ดึงดูดแพทย์เฉพาะทางและพยาบาลมีประสบการณ์',score:4},{text:'ระบบ Engagement และเสียงสะท้อนบุคลากรทำสม่ำเสมอ ผลลัพธ์ดีขึ้นต่อเนื่อง',score:3}],
+W:[{text:'การพึ่งพาแพทย์ Part-time สัดส่วนสูง ผูกพันกับองค์กรต่ำ',score:4},{text:'อัตราลาออกพยาบาลวิกฤต/ห้องผ่าตัดสูงตามการแข่งขันของตลาด',score:4},{text:'ต้นทุนบุคลากรสัดส่วนสูงที่สุดของค่าใช้จ่าย ถูกกดดันให้คุมเข้ม',score:3},{text:'บุคลากรสองภาษารองรับผู้ป่วยต่างชาติยังไม่พอตามแผนขยาย',score:3}],
+O:[{text:'Medical Hub และผู้ป่วยต่างชาติกลับมาเติบโต สร้างรายได้และตำแหน่งงานใหม่',score:4},{text:'เครือข่ายโรงเรียนพยาบาลเอกชนพร้อมทำสัญญาทุนผูกพันป้อนพยาบาลใหม่',score:4},{text:'สังคมสูงวัยขยายบริการ Home Care/Wellness เปิดสายงานใหม่',score:3},{text:'ระบบ HRIS และ e-Training ของเครือช่วยมาตรฐานเดียวกันทุกสาขา',score:2}],
+T:[{text:'การแย่งชิงพยาบาลและบุคลากรวิชาชีพระหว่างโรงพยาบาลเอกชนรุนแรงมาก',score:5},{text:'โรงพยาบาลคู่แข่งเปิดใหม่พร้อมข้อเสนอเซ็นสัญญา (Sign-on Bonus) สูง',score:4},{text:'มาตรฐานการรับรองและกฎระเบียบวิชาชีพเพิ่มภาระชั่วโมงอบรมบังคับ',score:4},{text:'ความคาดหวังผู้ป่วยสูง ข้อร้องเรียนกระทบทั้งแบรนด์และขวัญกำลังใจ',score:4}]}},
+law:{name:'ฝ่ายทรัพยากรบุคคล — สำนักงานกฎหมายและที่ปรึกษาวิชาชีพ',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'ระบบพี่เลี้ยง Partner-Associate ถ่ายทอดงานคดีจริงเข้มข้น',score:5},{text:'ชื่อเสียงสำนักงานดึงดูดบัณฑิตกฎหมายเกียรตินิยมสมัครต่อเนื่อง',score:5},{text:'เส้นทางเติบโตสู่หุ้นส่วน (Partnership Track) ชัดเจนและเห็นตัวอย่างจริง',score:4},{text:'วัฒนธรรมคุณภาพงานเอกสารเข้มงวด ความผิดพลาดต่อลูกค้าต่ำมาก',score:4}],
+W:[{text:'ชั่วโมงงานยาวและวัฒนธรรม Billable Hours กดดัน Associate รุ่นใหม่ลาออก',score:4},{text:'การประเมินผลอิงดุลยพินิจหุ้นส่วน ขาดเกณฑ์กลางที่โปร่งใส',score:4},{text:'งาน HR เป็นธุรการ ยังไม่มีบทบาทพัฒนาคนเชิงระบบ',score:3},{text:'ความรู้เฉพาะทางกระจุกที่หุ้นส่วนอาวุโสไม่กี่คน',score:3}],
+O:[{text:'งานกฎหมายใหม่ (PDPA, ESG, เทคโนโลยี) เติบโต เปิดสายความเชี่ยวชาญใหม่',score:5},{text:'AI ช่วยงานค้นคว้าและร่างเอกสารเบื้องต้น ลดภาระงานซ้ำของทีมรุ่นใหม่',score:4},{text:'เครือข่ายสำนักงานต่างประเทศเปิดโอกาส Secondment พัฒนาคนเก่ง',score:4},{text:'มหาวิทยาลัยพร้อมทำโครงการฝึกงานคลินิกกฎหมายป้อนบัณฑิตคุณภาพ',score:4}],
+T:[{text:'บริษัทลูกค้ารายใหญ่ตั้งฝ่ายกฎหมายภายใน (In-house) แย่งทั้งงานและคน',score:4},{text:'สำนักงานคู่แข่งและ In-house เสนอค่าตอบแทนสูงกว่าพร้อมสมดุลชีวิตดีกว่า',score:4},{text:'คนเก่งลาออกไปตั้งสำนักงานเองพร้อมพาลูกความติดตัว',score:3},{text:'AI ด้านกฎหมายอาจลดความต้องการ Associate ระดับต้นในระยะยาว',score:3}]}},
+edu:{name:'ฝ่ายทรัพยากรบุคคล — สถาบันการศึกษาเอกชน',group:'กลุ่มการเงิน วิชาชีพ และบริการเฉพาะทาง',swot:{
+S:[{text:'ทีมครูมีใบอนุญาตประกอบวิชาชีพครบและผูกพันกับสถาบันสูง',score:5},{text:'ระบบนิเทศการสอนและชุมชนการเรียนรู้ครู (PLC) ทำต่อเนื่องทุกภาคเรียน',score:4},{text:'ชื่อเสียงด้านวิชาการช่วยดึงดูดครูเก่งสมัครเข้ามาเอง',score:4},{text:'สวัสดิการส่วนลดค่าเล่าเรียนบุตรบุคลากรเป็นแรงจูงใจรักษาคน',score:4}],
+W:[{text:'โครงสร้างเงินเดือนครูเอกชนต่ำกว่าราชการ ครูสอบบรรจุแล้วลาออกทุกปี',score:5},{text:'ครูต่างชาติหมุนเวียนสูงและกระบวนการวีซ่า/ใบอนุญาตทำงานซับซ้อน',score:4},{text:'ภาระงานเอกสารประกันคุณภาพเบียดเวลาการสอนและพัฒนาตนเอง',score:3},{text:'บุคลากรสายสนับสนุนมีน้อย ครูต้องควบงานธุรการ',score:3}],
+O:[{text:'ผู้ปกครองพร้อมจ่ายเพื่อหลักสูตรทางเลือก (สองภาษา STEM) เปิดตำแหน่งครูทักษะใหม่',score:4},{text:'แพลตฟอร์มการสอนดิจิทัลช่วยครูลดภาระเตรียมสื่อและตรวจงาน',score:4},{text:'เครือข่ายมหาวิทยาลัยครุศาสตร์พร้อมส่งนักศึกษาฝึกสอนคุณภาพ',score:3},{text:'ตลาดติวเตอร์/ครูพิเศษเป็นช่องทางรายได้เสริมที่ออกแบบร่วมกับสถาบันได้',score:2}],
+T:[{text:'อัตราการเกิดลดลง จำนวนนักเรียนหดตัว กระทบความมั่นคงตำแหน่งครูระยะยาว',score:5},{text:'โรงเรียนรัฐและโรงเรียนนานาชาติแย่งครูเก่งด้วยเงินเดือนและสวัสดิการสูงกว่า',score:4},{text:'ค่าใช้จ่ายผู้ปกครองผันผวนตามเศรษฐกิจ กระทบรายได้และงบบุคลากร',score:4},{text:'กฎระเบียบการศึกษาเอกชนและมาตรฐานวิชาชีพครูปรับบ่อย',score:3}]}}
+
+};
+
+function clone(x){return JSON.parse(JSON.stringify(x))}
+let unitId=(function(){try{const u=localStorage.getItem('swothr_unit');if(u&&UNITS[u])return u}catch(e){}return 'mfg'})();
+let state=loadUnit(unitId);
+function loadUnit(id){
+  try{const s=localStorage.getItem('swothr_data_'+id); if(s){const o=JSON.parse(s); if(o&&o.S)return o}}catch(e){}
+  const u=UNITS[id];
+  return {name:u.name, S:clone(u.swot.S), W:clone(u.swot.W), O:clone(u.swot.O), T:clone(u.swot.T)};
+}
+function save(){
+  try{
+    const n=document.getElementById('unitName'); if(n) state.name=n.value;
+    localStorage.setItem('swothr_data_'+unitId, JSON.stringify(state));
+    localStorage.setItem('swothr_unit', unitId);
+  }catch(e){}
+}
+
+/* ---------- Keyword intelligence ---------- */
+const TAGS = [
+  {re:/(อัตรากำลัง|สรรหา|recruit|ลาออก|turnover|รักษาคน|สมรรถนะ|ทักษะ|ฝึกอบรม|พี่เลี้ยง|สืบทอด|successor|ผู้นำ|หัวหน้างาน|แรงงานฝีมือ|พนักงานใหม่|ปฐมนิเทศ|ประเมินผล|kpi)/i, tag:'hr'},
+  {re:/(ค่าจ้าง|เงินเดือน|โบนัส|ค่าตอบแทน|สวัสดิการ|ต้นทุนแรงงาน|งบประมาณ|โอที|ล่วงเวลา|ค่าแรงขั้นต่ำ|incentive|กองทุนสำรอง)/i, tag:'fin'},
+  {re:/(สถานที่|อุปกรณ์|เครื่องมือ|หอพัก|รถรับส่ง|ความปลอดภัยในการทำงาน|อาชีวอนามัย|จป|อุบัติเหตุ|สภาพแวดล้อม|โรงอาหาร)/i, tag:'res'},
+  {re:/(engagement|ความผูกพัน|วัฒนธรรม|ค่านิยม|ร้องเรียน|วินัย|ความพึงพอใจ|แบรนด์นายจ้าง|employer|ภาพลักษณ์|หมดไฟ|burnout|สื่อสังคม)/i, tag:'qual'},
+  {re:/(สหภาพ|แรงงานสัมพันธ์|มหาวิทยาลัย|วิทยาลัย|สถาบันการศึกษา|ทวิภาคี|สหกิจ|พันธมิตร|outsource|จ้างเหมา|เครือข่าย|ชุมชน)/i, tag:'net'},
+  {re:/(hris|payroll|ระบบสารสนเทศ|ดิจิทัล|ai|ข้อมูล|dashboard|analytics|e-learning|ออนไลน์|แอป|อัตโนมัติ|ระบบล่ม|ไซเบอร์)/i, tag:'tech'},
+  {re:/(ขาดแคลน|แย่งตัว|แย่งชิง|ตลาดแรงงาน|สังคมสูงวัย|generation|เจน|คนรุ่นใหม่|แรงงานต่างด้าว|ต่างชาติ|ประชากร|demographic)/i, tag:'demand'},
+  {re:/(hybrid|ทำงานจากที่บ้าน|ทำงานทางไกล|กะ|ผลัด|สัญญาจ้าง|พาร์ทไทม์|part|gig|ฟรีแลนซ์|ยืดหยุ่น|ฤดูกาล|รายวัน)/i, tag:'mode'},
+  {re:/(กฎหมายแรงงาน|พรบ|ประกันสังคม|pdpa|ระเบียบ|ตรวจแรงงาน|ฟ้องร้อง|คดีแรงงาน|ศาลแรงงาน)/i, tag:'gen'},
+];
+
+function tagOf(text){ for(const t of TAGS){ if(t.re.test(text)) return t.tag } return 'gen' }
+
+const TAG_NAME = {
+  hr:'ด้านกำลังคนและสมรรถนะ', fin:'ด้านค่าตอบแทนและต้นทุนแรงงาน', res:'ด้านสภาพแวดล้อมและความปลอดภัย',
+  qual:'ด้านความผูกพันและแบรนด์นายจ้าง', net:'ด้านแรงงานสัมพันธ์และพันธมิตร', tech:'ด้านดิจิทัลและข้อมูล HR',
+  demand:'ด้านตลาดแรงงาน', mode:'ด้านรูปแบบการจ้างงาน', gen:'ด้านการบริหารและกฎหมายแรงงาน'
+};
+
+/* ---------- Method 1: strategy per factor ---------- */
+const M1 = {
+  S: {
+    verb:'ธำรงรักษาและต่อยอด',
+    make(item){
+      const tail = {
+        hr:'โดยพัฒนาให้เป็นวิทยากรภายใน/พี่เลี้ยง และจัดทำแผนสืบทอดตำแหน่ง (Succession Plan) เพื่อไม่ให้ความสามารถผูกติดกับตัวบุคคล',
+        qual:'โดยยกระดับเป็นแบรนด์นายจ้าง (Employer Branding) สื่อสารทั้งภายในและภายนอก เพื่อดึงดูดและรักษาคนเก่ง',
+        net:'โดยขยายความร่วมมือเป็นข้อตกลง (MOU) ระยะยาว พร้อมแผนงานและตัวชี้วัดร่วมกับพันธมิตร',
+        tech:'โดยยกระดับสู่ระบบดิจิทัลเต็มรูปแบบ และใช้ข้อมูลขับเคลื่อนการตัดสินใจด้านคน (People Analytics)',
+        gen:'ให้เป็นมาตรฐานการทำงานของฝ่าย พร้อมถ่ายทอดสู่ทีมงานรุ่นใหม่อย่างเป็นระบบ'
+      };
+      return `ธำรงรักษาและต่อยอด "${item.text}" ${tail[item.tag]||tail.gen}`;
+    }
+  },
+  W: {
+    verb:'พัฒนา/แก้ไข',
+    make(item){
+      const tail = {
+        hr:'โดยวิเคราะห์อัตรากำลัง (FTE) วางแผนสรรหาเชิงรุก จัดระบบพี่เลี้ยง และทำแผนพัฒนารายบุคคล (IDP) ที่วัดผลได้',
+        res:'โดยจัดทำแผนงบประมาณปรับปรุงสภาพแวดล้อมและความปลอดภัยในการทำงาน พร้อมมาตรการระยะสั้นที่ทำได้ทันที (Quick Win)',
+        tech:'โดยพัฒนา/จัดหาระบบ HRIS ที่เชื่อมข้อมูลครบวงจร กำหนดเจ้าของข้อมูล (Data Owner) และตัวชี้วัดความครบถ้วนของข้อมูล',
+        fin:'โดยทบทวนโครงสร้างค่าตอบแทนเทียบตลาด (Salary Benchmarking) และออกแบบสวัสดิการยืดหยุ่นตามความต้องการจริงของพนักงาน',
+        gen:'โดยจัดทำแผนพัฒนาที่ระบุผู้รับผิดชอบ ตัวชี้วัด และกรอบเวลาแล้วเสร็จชัดเจน พร้อมรายงานความก้าวหน้าต่อผู้บริหาร'
+      };
+      return `เร่งพัฒนาและแก้ไขประเด็น "${item.text}" ${tail[item.tag]||tail.gen}`;
+    }
+  },
+  O: {
+    verb:'แสวงหา/ใช้ประโยชน์',
+    make(item){
+      const tail = {
+        fin:'โดยจัดทำโครงการรองรับให้สอดคล้องเงื่อนไขการสนับสนุน และติดตามการใช้สิทธิประโยชน์ให้เต็มเม็ดเต็มหน่วย',
+        net:'โดยแปลงความร่วมมือเป็นแผนงานที่มีเป้าหมายและตัวชี้วัดร่วมกัน (Joint KPI) เช่น โครงการทวิภาคี/สหกิจศึกษากับสถาบันการศึกษา',
+        tech:'โดยนำร่องใช้งานจริงกับกลุ่มงานเป้าหมาย ประเมินผล แล้วขยายผลทั้งองค์กร',
+        demand:'โดยเชื่อมโยงเข้ากับแผนกำลังคนล่วงหน้า (Workforce Planning) เพื่อชิงความได้เปรียบก่อนคู่แข่ง',
+        gen:'ให้เกิดผลเป็นรูปธรรมผ่านโครงการ/กิจกรรมที่บรรจุในแผนงาน HR ประจำปี'
+      };
+      return `ใช้ประโยชน์จาก "${item.text}" ${tail[item.tag]||tail.gen}`;
+    }
+  },
+  T: {
+    verb:'ป้องกัน/ลดผลกระทบ',
+    make(item){
+      const tail = {
+        demand:'โดยวางแผนกำลังคนล่วงหน้า สร้างช่องทางสรรหาที่หลากหลาย และเร่งพัฒนาคนภายในทดแทนการซื้อตัว (Build over Buy)',
+        mode:'โดยออกแบบรูปแบบการจ้างงานยืดหยุ่นที่ถูกกฎหมายและเป็นธรรม พร้อมทบทวนสัญญาจ้างให้รัดกุม',
+        fin:'โดยบริหารต้นทุนแรงงานด้วยข้อมูล (คน ชั่วโมง ผลิตภาพ) และหาจุดสมดุลระหว่างการควบคุมต้นทุนกับการรักษาคน',
+        res:'โดยจัดทำมาตรฐานความปลอดภัย แผนรองรับเหตุฉุกเฉิน และแผนความต่อเนื่องของธุรกิจด้านกำลังคน (Workforce BCP)',
+        gen:'โดยจัดทำแผนบริหารความเสี่ยงด้านคน (People Risk) พร้อมระบบเฝ้าระวังสัญญาณเตือนล่วงหน้า และทบทวนเป็นระยะ'
+      };
+      return `จัดทำแผนรองรับเพื่อป้องกันและลดผลกระทบจาก "${item.text}" ${tail[item.tag]||tail.gen}`;
+    }
+  }
+};
+
+/* ---------- Method 2: TOWS ---------- */
+const NAME_BANK = {
+  hr:'คนเก่ง คนพร้อม', fin:'ค่าตอบแทนแข่งขันได้', res:'ที่ทำงานปลอดภัยน่าอยู่', qual:'แบรนด์นายจ้างแข็งแกร่ง',
+  net:'พันธมิตรเข้มแข็ง', tech:'HR ดิจิทัล', demand:'ชนะศึกแย่งชิงคน', mode:'การจ้างงานยืดหยุ่น', gen:'บริหารมุ่งผลลัพธ์'
+};
+function stratName(a,b){
+  const t1=NAME_BANK[a.tag]||NAME_BANK.gen, t2=NAME_BANK[b.tag]||NAME_BANK.gen;
+  return t1===t2? `กลยุทธ์ "${t1}"` : `กลยุทธ์ "${t1} × ${t2}"`;
+}
+function shorten(t,n=64){ return t.length>n? t.slice(0,n).trim()+'…' : t }
+
+const TOWS_TPL = {
+  SO(s,o){ return `ใช้ ${shorten(s.text)} เป็นฐานความสามารถหลัก ผนวกกับ ${shorten(o.text)} เพื่อยกระดับงาน HR เชิงรุก ดึงดูดคนเก่ง และสร้างความได้เปรียบด้านกำลังคนเหนือคู่แข่ง` },
+  WO(w,o){ return `ใช้โอกาสจาก ${shorten(o.text)} มาเป็นกลไกแก้ไขจุดอ่อนเรื่อง ${shorten(w.text)} เช่น ดึงเครื่องมือ เทคโนโลยี หรือพันธมิตรภายนอกมาปิดช่องว่างภายใน` },
+  ST(s,t){ return `ใช้ ${shorten(s.text)} เป็นเกราะป้องกันเพื่อลดผลกระทบจาก ${shorten(t.text)} พร้อมสื่อสารจุดแข็งนี้ให้พนักงานและผู้สมัครงานรับรู้ เพื่อรักษากำลังคนหลักขององค์กร` },
+  WT(w,t){ return `เร่งลดจุดอ่อนเรื่อง ${shorten(w.text)} ควบคู่กับการเตรียมแผนรองรับ ${shorten(t.text)} โดยจัดลำดับเป็นความเสี่ยงด้านคนที่สำคัญขององค์กร (Top People Risk) และติดตามใกล้ชิด` }
+};
+
+function pairs(A,B,limit=3){
+  const a=[...A].sort((x,y)=>y.score-x.score), b=[...B].sort((x,y)=>y.score-x.score);
+  const out=[]; const n=Math.min(limit, Math.max(a.length,b.length));
+  for(let i=0;i<n;i++){
+    if(!a.length||!b.length) break;
+    out.push([ a[i%a.length], b[i%b.length] ]);
+  }
+  return out;
+}
+
+/* ---------- Method 3: overall ---------- */
+function sums(){
+  const f=k=>state[k].reduce((s,i)=>s+(+i.score||0),0);
+  return {S:f('S'),W:f('W'),O:f('O'),T:f('T')};
+}
+const QUADS = {
+  SO:{ key:'SO', name:'กลยุทธ์เชิงรุก (Aggressive Strategy)', sub:'ดาวรุ่ง — จุดแข็งเด่น โอกาสเปิด',
+    dir:'มุ่งขยายบริการ เพิ่มขีดความสามารถ และสร้างความเป็นเลิศ (Growth & Excellence)',
+    color:'var(--s)',
+    recs:[
+      'ขยายบทบาท HR สู่หุ้นส่วนเชิงกลยุทธ์ของธุรกิจ (Strategic Partner) และพัฒนาสู่หน่วยงานต้นแบบด้านการบริหารคน',
+      'ต่อยอดแนวปฏิบัติที่ดีเป็นนวัตกรรม HR ส่งประกวดรางวัลองค์กรดีเด่น และสื่อสารเป็นแบรนด์นายจ้าง',
+      'ใช้มาตรการรัฐและสิทธิประโยชน์ภายนอก (กองทุนพัฒนาฝีมือแรงงาน สิทธิลดหย่อนภาษีฝึกอบรม) เปิดโครงการพัฒนาคนใหม่ ๆ',
+      'นำเทคโนโลยีดิจิทัลและ People Analytics มายกระดับกระบวนการ HR โดยไม่เพิ่มภาระทีมงาน'
+    ]},
+  WO:{ key:'WO', name:'กลยุทธ์เชิงพัฒนา/พลิกฟื้น (Turnaround Strategy)', sub:'เครื่องหมายคำถาม — โอกาสเปิด แต่ภายในยังอ่อน',
+    dir:'เร่งเสริมความเข้มแข็งภายใน โดยใช้แรงหนุนจากภายนอกเป็นตัวเร่ง (Build Internal Capacity)',
+    color:'var(--o)',
+    recs:[
+      'จัดทำแผนพัฒนาขีดความสามารถทีม HR โดยขอการสนับสนุนจากผู้บริหารระดับสูงและที่ปรึกษาภายนอก',
+      'ใช้เทคโนโลยีและบริการภายนอก (HR Tech, Outsourcing) มาแก้ไขข้อจำกัดด้านคนและระบบงาน',
+      'วางรากฐานระบบข้อมูลและกระบวนการ HR ให้มั่นคงก่อน แล้วจึงขยายบทบาทเชิงกลยุทธ์',
+      'สร้างความร่วมมือกับสถาบันการศึกษาและพันธมิตรธุรกิจ เพื่อชดเชยทรัพยากรที่ยังขาด'
+    ]},
+  ST:{ key:'ST', name:'กลยุทธ์เชิงป้องกัน/รักษาฐาน (Defensive-Strength Strategy)', sub:'วัวเงินสด — ภายในแข็งแรง แต่สภาพแวดล้อมกดดัน',
+    dir:'ใช้จุดแข็งรักษาเสถียรภาพบริการ และกระจายความเสี่ยง (Stabilize & Diversify)',
+    color:'var(--gold)',
+    recs:[
+      'ชูจุดแข็งด้านคน วัฒนธรรม และความมั่นคงขององค์กรเป็นจุดยืนรักษากำลังคนหลัก ท่ามกลางแรงกดดันภายนอก',
+      'จัดทำแผนความต่อเนื่องด้านกำลังคน (Workforce BCP) รองรับการลาออกกะทันหัน การขาดแคลนแรงงาน และวิกฤตภายนอก',
+      'สร้างท่อกำลังคนล่วงหน้า (Talent Pipeline) ร่วมกับสถาบันการศึกษาและชุมชน เพื่อลดปัญหาขาดแคลนปลายทาง',
+      'พัฒนารูปแบบการจ้างงานและสวัสดิการยืดหยุ่นที่ตอบโจทย์แรงงานยุคใหม่'
+    ]},
+  WT:{ key:'WT', name:'กลยุทธ์เชิงรับ/ปรับตัว (Retrenchment Strategy)', sub:'สุนัขจนตรอก — ภายในอ่อนและภายนอกกดดัน',
+    dir:'ตั้งหลัก ลดความเสี่ยง จัดลำดับความสำคัญ ทำน้อยแต่ชัด (Focus & Protect)',
+    color:'var(--t)',
+    recs:[
+      'ทบทวนขอบเขตงาน HR ให้สอดคล้องกับกำลังที่มีจริง โดยคงงานจำเป็นตามกฎหมายและงานความเสี่ยงสูงเป็นลำดับแรก',
+      'จัดทำทะเบียนความเสี่ยงด้านคน (Top People Risk) พร้อมมาตรการควบคุมและระบบเฝ้าระวังที่รัดกุม',
+      'ใช้บริการภายนอก (Outsource/Shared Service) แบ่งเบางานธุรการ เพื่อให้ทีมโฟกัสงานที่กระทบธุรกิจที่สุด',
+      'เร่งปิดจุดอ่อนที่วิกฤตที่สุดก่อน (Critical Few) แล้วจึงทยอยพัฒนาส่วนอื่นตามลำดับ'
+    ]}
+};
+function quadrantOf(x,y){
+  if(y>=0 && x>=0) return QUADS.SO;
+  if(y<0 && x>=0) return QUADS.WO;
+  if(y>=0 && x<0) return QUADS.ST;
+  return QUADS.WT;
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function renderInputs(){
+  for(const k of ['S','W','O','T']){
+    const box=$('#list-'+k); box.innerHTML='';
+    state[k].forEach((it,idx)=>{
+      const row=document.createElement('div'); row.className='item';
+      row.innerHTML=`
+        <input type="text" value="${esc(it.text)}" data-k="${k}" data-i="${idx}" data-f="text" placeholder="ระบุปัจจัย...">
+        <select data-k="${k}" data-i="${idx}" data-f="score" title="คะแนนความสำคัญ (1-5)">
+          ${[5,4,3,2,1].map(v=>`<option value="${v}" ${v==it.score?'selected':''}>★ ${v}</option>`).join('')}
+        </select>
+        <button class="del" data-k="${k}" data-i="${idx}" title="ลบรายการ">✕</button>`;
+      box.appendChild(row);
+    });
+    $('#cnt-'+k).textContent=state[k].length+' ข้อ';
+  }
+}
+
+function annotate(){
+  for(const k of ['S','W','O','T']) state[k].forEach(it=>it.tag=tagOf(it.text));
+}
+
+function renderM1(){
+  const groups=[
+    ['S','จุดแข็ง → กลยุทธ์ธำรงรักษาและต่อยอด','var(--s)','c-s'],
+    ['W','จุดอ่อน → กลยุทธ์พัฒนาและแก้ไข','var(--w)','c-w'],
+    ['O','โอกาส → กลยุทธ์แสวงหาและใช้ประโยชน์','var(--o)','c-o'],
+    ['T','ภัยคุกคาม → กลยุทธ์ป้องกันและลดผลกระทบ','var(--t)','c-t'],
+  ];
+  let html='';
+  for(const [k,title,color,cls] of groups){
+    html+=`<div class="grp-title"><span class="dot" style="background:${color}"></span>${title}</div>`;
+    if(!state[k].length){ html+=`<div class="stg ${cls}"><div class="body" style="color:var(--ink3)">ยังไม่มีข้อมูล — เพิ่มปัจจัยในช่องกรอกด้านซ้ายเพื่อให้ระบบสร้างกลยุทธ์</div></div>`; continue }
+    const sorted=[...state[k]].map((it,i)=>({...it,no:i+1})).sort((a,b)=>b.score-a.score);
+    for(const it of sorted){
+      html+=`<div class="stg ${cls}">
+        <div class="src"><b>${k}${it.no}</b> · ★${it.score} · ${TAG_NAME[it.tag]||''} — ${esc(it.text)}</div>
+        <div class="body">➤ ${esc(M1[k].make(it))}</div></div>`;
+    }
+  }
+  $('#m1-body').innerHTML=html;
+}
+
+function renderM2(){
+  const cells=[
+    ['SO','q-so','กลยุทธ์เชิงรุก (SO)','ใช้จุดแข็ง คว้าโอกาส',pairs(state.S,state.O)],
+    ['WO','q-wo','กลยุทธ์เชิงพัฒนา (WO)','ใช้โอกาส ปิดจุดอ่อน',pairs(state.W,state.O)],
+    ['ST','q-st','กลยุทธ์เชิงป้องกัน (ST)','ใช้จุดแข็ง รับมือภัยคุกคาม',pairs(state.S,state.T)],
+    ['WT','q-wt','กลยุทธ์เชิงรับ (WT)','ลดจุดอ่อน เลี่ยงภัยคุกคาม',pairs(state.W,state.T)],
+  ];
+  let html='';
+  for(const [key,cls,title,sub,ps] of cells){
+    html+=`<div class="tows-cell ${cls}"><div class="th">${title}<small>${sub}</small></div><div class="tb">`;
+    if(!ps.length) html+=`<div style="color:var(--ink3);font-size:13px">ต้องมีข้อมูลทั้งสองด้านจึงจะจับคู่ได้</div>`;
+    ps.forEach(([a,b],i)=>{
+      const txt=TOWS_TPL[key](a,b);
+      html+=`<div class="stg c-${key.toLowerCase()}">
+        <div class="name">${key}${i+1} · ${esc(stratName(a,b))}</div>
+        <div class="body">${esc(txt)}</div>
+        <div class="src" style="margin-top:4px">คู่ปัจจัย: [${key[0]}★${a.score}] × [${key[1]}★${b.score}]</div>
+      </div>`;
+    });
+    html+='</div></div>';
+  }
+  $('#m2-body').innerHTML=html;
+}
+
+function renderM3(){
+  const s=sums();
+  const nx=state.O.length+state.T.length, ny=state.S.length+state.W.length;
+  const x=s.O-s.T, y=s.S-s.W;                    // raw axes
+  const maxX=Math.max(s.O+s.T,1), maxY=Math.max(s.S+s.W,1);
+  const px=x/maxX, py=y/maxY;                    // normalized -1..1
+  const Q=quadrantOf(x,y);
+  const unit=esc($('#unitName').value||'หน่วยงาน');
+  const hosp=esc($('#hospType').value);
+
+  /* compass svg */
+  const C=300, mid=C/2, R=mid-26;
+  const cx=mid+px*R, cy=mid-py*R;
+  const svg=`
+  <svg viewBox="0 0 ${C} ${C}" width="100%" style="max-width:330px" role="img" aria-label="แผนภาพตำแหน่งเชิงกลยุทธ์">
+    <defs>
+      <radialGradient id="gpulse"><stop offset="0%" stop-color="${Q.color}" stop-opacity=".9"/><stop offset="100%" stop-color="${Q.color}" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect x="${mid-R}" y="${mid-R}" width="${R}" height="${R}" fill="rgba(245,197,90,.05)"/>
+    <rect x="${mid}" y="${mid-R}" width="${R}" height="${R}" fill="rgba(52,211,153,.06)"/>
+    <rect x="${mid-R}" y="${mid}" width="${R}" height="${R}" fill="rgba(251,113,133,.05)"/>
+    <rect x="${mid}" y="${mid}" width="${R}" height="${R}" fill="rgba(96,165,250,.05)"/>
+    <line x1="${mid-R}" y1="${mid}" x2="${mid+R}" y2="${mid}" stroke="var(--line2)" stroke-width="1.2"/>
+    <line x1="${mid}" y1="${mid-R}" x2="${mid}" y2="${mid+R}" stroke="var(--line2)" stroke-width="1.2"/>
+    <rect x="${mid-R}" y="${mid-R}" width="${2*R}" height="${2*R}" fill="none" stroke="var(--line)" stroke-dasharray="3 4"/>
+    <text x="${mid+R-6}" y="${mid-R+16}" text-anchor="end" font-size="11" fill="var(--s)" font-weight="700">เชิงรุก (SO)</text>
+    <text x="${mid-R+6}" y="${mid-R+16}" font-size="11" fill="var(--gold)" font-weight="700">เชิงป้องกัน (ST)</text>
+    <text x="${mid+R-6}" y="${mid+R-8}" text-anchor="end" font-size="11" fill="var(--o)" font-weight="700">เชิงพัฒนา (WO)</text>
+    <text x="${mid-R+6}" y="${mid+R-8}" font-size="11" fill="var(--t)" font-weight="700">เชิงรับ (WT)</text>
+    <text x="${mid}" y="14" text-anchor="middle" font-size="10.5" fill="var(--ink3)">S (จุดแข็ง) +</text>
+    <text x="${mid}" y="${C-4}" text-anchor="middle" font-size="10.5" fill="var(--ink3)">W (จุดอ่อน) −</text>
+    <text x="${C-4}" y="${mid-6}" text-anchor="end" font-size="10.5" fill="var(--ink3)">O +</text>
+    <text x="6" y="${mid-6}" font-size="10.5" fill="var(--ink3)">T −</text>
+    <circle cx="${cx}" cy="${cy}" r="16" fill="url(#gpulse)"><animate attributeName="r" values="12;20;12" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="${cx}" cy="${cy}" r="6.5" fill="${Q.color}" stroke="#06121F" stroke-width="2"/>
+    <line x1="${mid}" y1="${mid}" x2="${cx}" y2="${cy}" stroke="${Q.color}" stroke-width="1.5" stroke-dasharray="2 3" opacity=".7"/>
+  </svg>`;
+
+  const recsFromData = topRecs(Q);
+  $('#m3-body').innerHTML=`
+    <div class="scorebar">
+      <div class="sc"><div class="v" style="color:var(--s)">${s.S}</div><div class="l">คะแนนรวมจุดแข็ง (S)</div></div>
+      <div class="sc"><div class="v" style="color:var(--w)">${s.W}</div><div class="l">คะแนนรวมจุดอ่อน (W)</div></div>
+      <div class="sc"><div class="v" style="color:var(--o)">${s.O}</div><div class="l">คะแนนรวมโอกาส (O)</div></div>
+      <div class="sc"><div class="v" style="color:var(--t)">${s.T}</div><div class="l">คะแนนรวมภัยคุกคาม (T)</div></div>
+    </div>
+    <div class="overall-grid">
+      <div class="compass-box">
+        ${svg}
+        <div><span class="pos-label" style="border-color:${Q.color};color:${Q.color};background:transparent">${Q.name.split(' (')[0]}</span></div>
+        <div class="axisnote">แกนภายใน (S−W) = <b>${y>=0?'+':''}${y}</b> · แกนภายนอก (O−T) = <b>${x>=0?'+':''}${x}</b><br>${Q.sub}</div>
+      </div>
+      <div>
+        <div class="vision">
+          <div class="eyebrow">สรุปทิศทางกลยุทธ์ที่ระบบแนะนำ</div>
+          <div style="font-family:'IBM Plex Sans Thai';font-weight:700;font-size:15.5px;margin:4px 0">${Q.name}</div>
+          <div style="font-size:14px">จากภาพรวมผลวิเคราะห์ SWOT ของ<b>${unit}</b> (${hosp}) ตำแหน่งเชิงกลยุทธ์อยู่ในโซน <b style="color:${Q.color}">${Q.name.split(' (')[0]}</b> — ${Q.dir}</div>
+        </div>
+        <div class="grp-title"><span class="dot" style="background:${Q.color}"></span>ชุดกลยุทธ์แนะนำตามตำแหน่งเชิงกลยุทธ์</div>
+        ${recsFromData.map((r,i)=>`<div class="stg" style="border-left-color:${Q.color}"><div class="name">กลยุทธ์แนะนำที่ ${i+1}</div><div class="body">${esc(r)}</div></div>`).join('')}
+      </div>
+    </div>`;
+}
+
+/* blend quadrant recs with top-scored real factors so it feels tailored */
+function topRecs(Q){
+  const recs=[...Q.recs];
+  const top=(k)=>[...state[k]].sort((a,b)=>b.score-a.score)[0];
+  const tS=top('S'), tW=top('W'), tO=top('O'), tT=top('T');
+  if(Q.key==='SO' && tS && tO) recs.push(`กลยุทธ์เฉพาะจากข้อมูลจริง: ใช้ ${shorten(tS.text,55)} ร่วมกับ ${shorten(tO.text,55)} เป็นโครงการเรือธง (Flagship) ของแผนปีนี้`);
+  if(Q.key==='WO' && tW && tO) recs.push(`กลยุทธ์เฉพาะจากข้อมูลจริง: เร่งแก้ ${shorten(tW.text,55)} โดยอาศัย ${shorten(tO.text,55)} เป็นแรงหนุนหลัก`);
+  if(Q.key==='ST' && tS && tT) recs.push(`กลยุทธ์เฉพาะจากข้อมูลจริง: ชู ${shorten(tS.text,55)} เพื่อรับมือ ${shorten(tT.text,55)} อย่างเป็นระบบ`);
+  if(Q.key==='WT' && tW && tT) recs.push(`กลยุทธ์เฉพาะจากข้อมูลจริง: จัดให้ ${shorten(tW.text,55)} และ ${shorten(tT.text,55)} เป็นความเสี่ยงอันดับหนึ่งที่ต้องมีแผนควบคุมทันที`);
+  return recs;
+}
+
+function renderAll(){ annotate(); renderInputs(); renderM1(); renderM2(); renderM3(); renderM4(); save(); }
+
+/* ============================================================
+   Events
+   ============================================================ */
+document.addEventListener('input',e=>{
+  const el=e.target;
+  if(el.dataset && el.dataset.k && el.dataset.f){
+    const {k,i,f}=el.dataset;
+    state[k][+i][f] = f==='score'? +el.value : el.value;
+    annotate(); renderM1(); renderM2(); renderM3(); save();
+    if(f==='score'){ /* keep select value; no rebuild needed */ }
+  }
+  if(el.id==='unitName'||el.id==='hospType'){ renderM3(); save(); }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='hospType') renderM3();
+});
+document.addEventListener('click',e=>{
+  const t=e.target;
+  if(t.classList.contains('del')){ const{k,i}=t.dataset; state[k].splice(+i,1); renderAll(); }
+  if(t.dataset && t.dataset.add){ state[t.dataset.add].push({text:'',score:3}); renderAll();
+    const inputs=document.querySelectorAll(`#list-${t.dataset.add} input[type=text]`);
+    if(inputs.length) inputs[inputs.length-1].focus();
+  }
+  if(t.classList.contains('tab')){
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.method').forEach(x=>x.classList.remove('show'));
+    t.classList.add('active'); document.getElementById(t.dataset.tab).classList.add('show');
+  }
+  if(t.id==='btnSeed'){ if(confirm('โหลดข้อมูลตัวอย่าง HR ของธุรกิจนี้ทับข้อมูลปัจจุบัน?')){
+    const u=UNITS[unitId];
+    state={name:u.name,S:clone(u.swot.S),W:clone(u.swot.W),O:clone(u.swot.O),T:clone(u.swot.T)};
+    document.getElementById('unitName').value=u.name; renderAll();
+  }}
+});
+
+document.getElementById('unitSel').addEventListener('change',e=>{
+  save();
+  unitId=e.target.value;
+  state=loadUnit(unitId);
+  document.getElementById('unitName').value=state.name||UNITS[unitId].name;
+  renderAll();
+});
+
+function populateUnitSel(){
+  const sel=document.getElementById('unitSel');
+  const groups={};
+  for(const [id,u] of Object.entries(UNITS)){ (groups[u.group]=groups[u.group]||[]).push([id,u.name]); }
+  sel.innerHTML=Object.entries(groups).map(([g,arr])=>
+    '<optgroup label="'+g+'">'+arr.map(([id,n])=>'<option value="'+id+'">'+n+'</option>').join('')+'</optgroup>').join('');
+  sel.value=unitId;
+  document.getElementById('unitName').value=state.name||UNITS[unitId].name;
+}
+
+/* ============================================================
+   Method 4: Aggregate all strategies + Top 5 ranking
+   ============================================================ */
+function collectStrategies(){
+  annotate();
+  const s=sums(), x=s.O-s.T, y=s.S-s.W, Q=quadrantOf(x,y);
+  const list=[];
+  for(const k of ['S','W','O','T']){
+    state[k].forEach((it,idx)=>{
+      if(!String(it.text).trim()) return;
+      const align=Q.key.includes(k);
+      const sc=Math.min(10, +((+it.score||0)*1.2 + (align?2.5:0.8)).toFixed(1));
+      list.push({m:1,src:'วิธีที่ 1 · รายปัจจัย',mk:k,
+        name:'กลยุทธ์ "'+(NAME_BANK[it.tag]||NAME_BANK.gen)+'"',
+        body:M1[k].make(it), score:sc,
+        why:'น้ำหนักปัจจัยต้นทาง '+k+(idx+1)+' = ★'+it.score+(align?' · สอดคล้องโซน '+Q.key+' ปัจจุบัน':''),
+        anchors:[k+idx]});
+    });
+  }
+  const combos=[['SO','S','O'],['WO','W','O'],['ST','S','T'],['WT','W','T']];
+  for(const [key,a,z] of combos){
+    pairs(state[a],state[z]).forEach(([ia,iz])=>{
+      const full=key===Q.key, half=!full&&(key[0]===Q.key[0]||key[1]===Q.key[1]);
+      const sc=Math.min(10, +(((+ia.score+ +iz.score)/2)*1.2 + (full?3:half?1.5:0.5)).toFixed(1));
+      list.push({m:2,src:'วิธีที่ 2 · TOWS ('+key+')',mk:key,
+        name:stratName(ia,iz), body:TOWS_TPL[key](ia,iz), score:sc,
+        why:'คู่ปัจจัย '+a+'★'+ia.score+' × '+z+'★'+iz.score+(full?' · ตรงกับโซน '+Q.key+' ปัจจุบัน':half?' · ใกล้เคียงโซนปัจจุบัน':''),
+        anchors:[a+state[a].indexOf(ia), z+state[z].indexOf(iz)]});
+    });
+  }
+  const recs=topRecs(Q);
+  recs.forEach((r,i)=>{
+    const isData=(i===recs.length-1 && recs.length>Q.recs.length);
+    const sc=isData?9.6:+(8.2-i*0.3).toFixed(1);
+    list.push({m:3,src:'วิธีที่ 3 · ภาพรวม ('+Q.key+')',mk:Q.key,
+      name:isData?'กลยุทธ์เรือธง (Flagship Strategy)':'กลยุทธ์ประจำโซน '+Q.key+' ลำดับ '+(i+1),
+      body:r, score:sc,
+      why:isData?'สังเคราะห์จากปัจจัยน้ำหนักสูงสุดจริงของหน่วยงาน จึงตรงบริบทที่สุด':'ชุดกลยุทธ์มาตรฐานของตำแหน่ง '+Q.name.split(' (')[0],
+      anchors:['Q'+i]});
+  });
+  return {list,Q};
+}
+function pickTop5(list){
+  const sorted=[...list].sort((a,b)=>b.score-a.score);
+  const picked=[], perM={1:0,2:0,3:0}, used={};
+  for(const c of sorted){
+    if(picked.length>=5) break;
+    if(perM[c.m]>=2) continue;
+    if(c.anchors.some(a=>(used[a]||0)>=2)) continue;
+    picked.push(c); perM[c.m]++;
+    c.anchors.forEach(a=>used[a]=(used[a]||0)+1);
+  }
+  for(const c of sorted){ if(picked.length>=5) break; if(!picked.includes(c)) picked.push(c); }
+  return picked;
+}
+const RANK_COLORS=['#F5C55A','#CBD5E1','#E8935A','#6FB7D9','#6FB7D9'];
+function renderM4(){
+  const {list,Q}=collectStrategies();
+  const top5=pickTop5(list);
+  const medal=(i)=>'<div class="rankb" style="background:'+RANK_COLORS[i]+'">'+(i+1)+'</div>';
+  const bar=(sc,color)=>'<div class="meter"><i style="width:'+(sc*10)+'%;background:'+color+'"></i></div>';
+  const srcColor={1:'var(--o)',2:'var(--gold)',3:'var(--s)'};
+  let html='<div class="sumbox">รวบรวมกลยุทธ์ได้ทั้งหมด <b>'+list.length+' ข้อ</b> จากทั้ง 3 วิธี · ตำแหน่งเชิงกลยุทธ์ปัจจุบัน: <b style="color:'+Q.color+'">'+Q.name.split(' (')[0]+'</b><br>'+
+    'เกณฑ์การจัดลำดับ: (1) น้ำหนักคะแนนของปัจจัยต้นทาง (2) ความสอดคล้องกับตำแหน่งเชิงกลยุทธ์ปัจจุบัน (3) กระจายแหล่งที่มา ไม่เกิน 2 ข้อต่อวิธี เพื่อให้ชุดกลยุทธ์ครอบคลุมหลายมุมมอง — คะแนนเต็ม 10</div>';
+  html+='<div class="grp-title"><span class="dot" style="background:'+Q.color+'"></span>Top 5 กลยุทธ์ที่ควรเลือกดำเนินการก่อน</div><div class="top5">';
+  top5.forEach((c,i)=>{
+    html+='<div class="stg" style="border-left-color:'+RANK_COLORS[i]+'">'+medal(i)+
+      '<div class="name">'+esc(c.name)+'<span class="srcchip">'+esc(c.src)+'</span><span class="scorechip" style="color:'+RANK_COLORS[i]+'">'+c.score.toFixed(1)+'/10</span></div>'+
+      '<div class="body">'+esc(c.body)+'</div>'+bar(c.score,RANK_COLORS[i])+
+      '<div class="why">เหตุผลการจัดลำดับ: '+esc(c.why)+'</div></div>';
+  });
+  html+='</div>';
+  for(const m of [1,2,3]){
+    const grp=list.filter(c=>c.m===m).sort((a,b)=>b.score-a.score);
+    html+='<div class="grp-title" style="margin-top:16px"><span class="dot" style="background:'+srcColor[m]+'"></span>กลยุทธ์ทั้งหมดจากวิธีที่ '+m+' ('+grp.length+' ข้อ · เรียงตามคะแนน)</div>';
+    grp.forEach(c=>{
+      const inTop=pickTop5(list).includes(c);
+      html+='<div class="stg" style="border-left-color:'+srcColor[m]+';opacity:'+(c.score>=7?'1':'.82')+'">'+
+        '<div class="name">'+esc(c.name)+(inTop?' <span class="srcchip" style="color:'+Q.color+';border-color:'+Q.color+'">★ ติด Top 5</span>':'')+
+        '<span class="scorechip" style="color:'+srcColor[m]+'">'+c.score.toFixed(1)+'</span></div>'+
+        '<div class="body">'+esc(c.body)+'</div></div>';
+    });
+  }
+  document.getElementById('m4-body').innerHTML=html;
+}
+
+/* ============================================================
+   Word Export (.docx) — pure JS OOXML + ZIP (stored), offline
+   ============================================================ */
+const DOCX_COLORS={primary:'0F766E',ink:'1F2937',gray:'64748B',line:'94A3B8',
+  S:'047857',W:'B45309',O:'0369A1',T:'BE123C',
+  fillS:'E7F6EE',fillW:'FDF3E3',fillO:'E5F2FB',fillT:'FDE8EC',fillHead:'0F766E',fillSoft:'F1F5F9'};
+const TH_MONTHS=['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+function thDate(){const d=new Date();return d.getDate()+' '+TH_MONTHS[d.getMonth()]+' พ.ศ. '+(d.getFullYear()+543);}
+const escX=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'');
+
+function wRun(text,o={}){
+  const rpr='<w:rPr><w:rFonts w:ascii="TH Sarabun New" w:hAnsi="TH Sarabun New" w:cs="TH Sarabun New"/>'+
+    (o.b?'<w:b/><w:bCs/>':'')+(o.i?'<w:i/><w:iCs/>':'')+
+    '<w:color w:val="'+(o.color||DOCX_COLORS.ink)+'"/>'+
+    '<w:sz w:val="'+(o.sz||32)+'"/><w:szCs w:val="'+(o.sz||32)+'"/></w:rPr>';
+  return '<w:r>'+rpr+'<w:t xml:space="preserve">'+escX(text)+'</w:t></w:r>';
+}
+function wPara(runs,o={}){
+  const ppr='<w:pPr>'+
+    (o.align?'<w:jc w:val="'+o.align+'"/>':'')+
+    '<w:spacing w:before="'+(o.before||0)+'" w:after="'+(o.after||120)+'" w:line="300" w:lineRule="auto"/>'+
+    (o.ind?'<w:ind w:left="'+o.ind+'" w:hanging="'+(o.hang||0)+'"/>':'')+
+    (o.keepNext?'<w:keepNext/>':'')+
+    (o.bottomLine?'<w:pBdr><w:bottom w:val="single" w:sz="12" w:space="4" w:color="'+DOCX_COLORS.primary+'"/></w:pBdr>':'')+
+    '</w:pPr>';
+  return '<w:p>'+ppr+(Array.isArray(runs)?runs.join(''):runs)+'</w:p>';
+}
+const wText=(t,ro={},po={})=>wPara([wRun(t,ro)],po);
+
+function wCell(content,o={}){
+  const bdr='<w:tcBorders>'+['top','left','bottom','right'].map(s=>'<w:'+s+' w:val="single" w:sz="6" w:space="0" w:color="'+DOCX_COLORS.line+'"/>').join('')+'</w:tcBorders>';
+  const tcpr='<w:tcPr><w:tcW w:w="'+(o.w||2000)+'" w:type="dxa"/>'+bdr+
+    (o.fill?'<w:shd w:val="clear" w:color="auto" w:fill="'+o.fill+'"/>':'')+
+    '<w:vAlign w:val="center"/><w:tcMar><w:top w:w="60" w:type="dxa"/><w:left w:w="100" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="100" w:type="dxa"/></w:tcMar></w:tcPr>';
+  return '<w:tc>'+tcpr+content+'</w:tc>';
+}
+function wTable(rows,widths){
+  const grid='<w:tblGrid>'+widths.map(w=>'<w:gridCol w:w="'+w+'"/>').join('')+'</w:tblGrid>';
+  const pr='<w:tblPr><w:tblW w:w="'+widths.reduce((a,b)=>a+b,0)+'" w:type="dxa"/><w:tblLayout w:type="fixed"/></w:tblPr>';
+  const body=rows.map(r=>'<w:tr><w:trPr><w:cantSplit/></w:trPr>'+r.join('')+'</w:tr>').join('');
+  return '<w:tbl>'+pr+grid+body+'</w:tbl>'+'<w:p><w:pPr><w:spacing w:after="80"/></w:pPr></w:p>';
+}
+
+function buildDocXml(){
+  annotate();
+  const unit=($('#unitName').value||'หน่วยงาน').trim();
+  const hosp=$('#hospType').value;
+  const s=sums(), x=s.O-s.T, y=s.S-s.W, Q=quadrantOf(x,y), recs=topRecs(Q);
+  const C=DOCX_COLORS;
+  const KMETA={S:{th:'จุดแข็ง (Strengths)',c:C.S,f:C.fillS},W:{th:'จุดอ่อน (Weaknesses)',c:C.W,f:C.fillW},
+               O:{th:'โอกาส (Opportunities)',c:C.O,f:C.fillO},T:{th:'ภัยคุกคาม (Threats)',c:C.T,f:C.fillT}};
+  let b='';
+
+  /* ---- cover heading ---- */
+  b+=wText('รายงานการวิเคราะห์ SWOT และข้อเสนอทางเลือกเชิงกลยุทธ์',{b:1,color:C.primary,sz:40},{align:'center',before:120,after:60});
+  b+=wText(unit,{b:1,sz:34},{align:'center',after:40});
+  b+=wText(hosp+'  ·  จัดทำ ณ วันที่ '+thDate(),{color:C.gray,sz:28},{align:'center',after:160,bottomLine:1});
+
+  /* ---- Section 1: SWOT tables ---- */
+  b+=wText('ส่วนที่ 1  ผลการวิเคราะห์สภาพแวดล้อม (SWOT Analysis)',{b:1,color:C.primary,sz:34},{before:160,after:100,keepNext:1});
+  const widths=[800,7038,1500];
+  for(const k of ['S','W','O','T']){
+    const m=KMETA[k];
+    b+=wText(k+' — '+m.th,{b:1,color:m.c,sz:30},{before:80,after:60,keepNext:1});
+    const head=[wCell(wText('ลำดับ',{b:1,color:'FFFFFF',sz:28},{align:'center',after:0}),{w:widths[0],fill:m.c}),
+                wCell(wText('ปัจจัย',{b:1,color:'FFFFFF',sz:28},{after:0}),{w:widths[1],fill:m.c}),
+                wCell(wText('น้ำหนัก (1–5)',{b:1,color:'FFFFFF',sz:28},{align:'center',after:0}),{w:widths[2],fill:m.c})];
+    const rows=[head];
+    state[k].forEach((it,i)=>{
+      rows.push([wCell(wText(String(i+1),{sz:28},{align:'center',after:0}),{w:widths[0],fill:i%2?m.f:null}),
+                 wCell(wText(k+(i+1)+'  '+it.text,{sz:28},{after:0}),{w:widths[1],fill:i%2?m.f:null}),
+                 wCell(wText('★ '+it.score,{b:1,color:m.c,sz:28},{align:'center',after:0}),{w:widths[2],fill:i%2?m.f:null})]);
+    });
+    b+=wTable(rows,widths);
+  }
+
+  /* ---- Section 2: Method 1 ---- */
+  b+=wText('ส่วนที่ 2  กลยุทธ์รายปัจจัย (วิธีที่ 1: จาก S/W/O/T แต่ละข้อ)',{b:1,color:C.primary,sz:34},{before:200,after:100,keepNext:1});
+  for(const k of ['S','W','O','T']){
+    const m=KMETA[k];
+    b+=wText('กลุ่ม '+k+' · แนวทาง: '+M1[k].verb,{b:1,color:m.c,sz:30},{before:80,after:60,keepNext:1});
+    const items=[...state[k]].sort((a,z)=>z.score-a.score);
+    items.forEach((it,i)=>{
+      b+=wPara([wRun((i+1)+')  ',{b:1,color:m.c,sz:28}),
+                wRun(M1[k].make(it),{sz:28}),
+                wRun('   [น้ำหนัก ★'+it.score+' · '+(TAG_NAME[it.tag]||TAG_NAME.gen)+']',{i:1,color:C.gray,sz:24})],
+               {ind:420,hang:420,after:80});
+    });
+  }
+
+  /* ---- Section 3: TOWS ---- */
+  b+=wText('ส่วนที่ 3  กลยุทธ์จากการจับคู่ TOWS Matrix (วิธีที่ 2)',{b:1,color:C.primary,sz:34},{before:200,after:100,keepNext:1});
+  const combos=[['SO','S','O','กลยุทธ์เชิงรุก (SO: Strengths–Opportunities)',C.S],
+                ['WO','W','O','กลยุทธ์เชิงแก้ไข/พัฒนา (WO: Weaknesses–Opportunities)',C.O],
+                ['ST','S','T','กลยุทธ์เชิงป้องกัน (ST: Strengths–Threats)',C.W],
+                ['WT','W','T','กลยุทธ์เชิงรับ (WT: Weaknesses–Threats)',C.T]];
+  let sn=0;
+  for(const [key,a,z,title,col] of combos){
+    b+=wText(title,{b:1,color:col,sz:30},{before:80,after:60,keepNext:1});
+    pairs(state[a],state[z]).forEach(([ia,iz])=>{
+      sn++;
+      b+=wPara([wRun('กลยุทธ์ที่ '+sn+'  ',{b:1,color:col,sz:28}),
+                wRun(stratName(ia,iz),{b:1,sz:28}),
+                wRun('   [จับคู่ '+a+'★'+ia.score+' × '+z+'★'+iz.score+']',{i:1,color:C.gray,sz:24})],
+               {after:20,keepNext:1});
+      b+=wText(TOWS_TPL[key](ia,iz),{sz:28},{ind:420,after:100});
+    });
+  }
+
+  /* ---- Section 4: overall position ---- */
+  b+=wText('ส่วนที่ 4  ตำแหน่งเชิงกลยุทธ์จากภาพรวมผลวิเคราะห์ SWOT (วิธีที่ 3)',{b:1,color:C.primary,sz:34},{before:200,after:100,keepNext:1});
+  const sw=[1900,1900,1900,1900,1738];
+  b+=wTable([
+    [wCell(wText('คะแนนรวม S',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:sw[0],fill:C.S}),
+     wCell(wText('คะแนนรวม W',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:sw[1],fill:C.W}),
+     wCell(wText('คะแนนรวม O',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:sw[2],fill:C.O}),
+     wCell(wText('คะแนนรวม T',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:sw[3],fill:C.T}),
+     wCell(wText('แกน (S−W | O−T)',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:sw[4],fill:C.primary})],
+    [wCell(wText(String(s.S),{b:1,color:C.S,sz:32},{align:'center',after:0}),{w:sw[0]}),
+     wCell(wText(String(s.W),{b:1,color:C.W,sz:32},{align:'center',after:0}),{w:sw[1]}),
+     wCell(wText(String(s.O),{b:1,color:C.O,sz:32},{align:'center',after:0}),{w:sw[2]}),
+     wCell(wText(String(s.T),{b:1,color:C.T,sz:32},{align:'center',after:0}),{w:sw[3]}),
+     wCell(wText((y>=0?'+':'')+y+' | '+(x>=0?'+':'')+x,{b:1,color:C.primary,sz:32},{align:'center',after:0}),{w:sw[4],fill:C.fillSoft})]
+  ],sw);
+  b+=wPara([wRun('ตำแหน่งเชิงกลยุทธ์: ',{b:1,sz:30}),wRun(Q.name,{b:1,color:C.primary,sz:30}),
+            wRun('  ('+Q.sub+')',{i:1,color:C.gray,sz:26})],{after:60});
+  b+=wPara([wRun('ทิศทางที่แนะนำ: ',{b:1,sz:28}),wRun(Q.dir,{sz:28})],{after:60});
+  b+=wText('จากภาพรวมผลวิเคราะห์ SWOT ของ'+unit+' ('+hosp+') ตำแหน่งเชิงกลยุทธ์อยู่ในโซน '+Q.name.split(' (')[0]+' จึงเสนอชุดกลยุทธ์ ดังนี้',{sz:28},{after:100});
+  recs.forEach((r,i)=>{
+    b+=wPara([wRun('กลยุทธ์แนะนำที่ '+(i+1)+':  ',{b:1,color:C.primary,sz:28}),wRun(r,{sz:28})],{ind:420,hang:420,after:80});
+  });
+
+  /* ---- Section 5: aggregate + Top 5 ---- */
+  const agg=collectStrategies(); const top5=pickTop5(agg.list);
+  b+=wText('ส่วนที่ 5  สรุปรวมกลยุทธ์จากทั้ง 3 วิธี และกลยุทธ์ที่ควรเลือกดำเนินการก่อน (Top 5 Strategies)',{b:1,color:C.primary,sz:34},{before:200,after:80,keepNext:1});
+  b+=wText('ระบบรวบรวมกลยุทธ์ทั้งหมด '+agg.list.length+' ข้อ จากวิธีที่ 1–3 และจัดลำดับความสำคัญโดยพิจารณา (1) น้ำหนักคะแนนของปัจจัยต้นทาง (2) ความสอดคล้องกับตำแหน่งเชิงกลยุทธ์ปัจจุบัน คือ '+Q.name.split(' (')[0]+' และ (3) การกระจายแหล่งที่มาไม่เกิน 2 ข้อต่อวิธี เพื่อให้ชุดกลยุทธ์สุดท้ายครอบคลุมหลายมุมมอง (คะแนนเต็ม 10)',{sz:28},{after:100});
+  const tw=[800,5838,1400,1000];
+  const t5rows=[[
+    wCell(wText('อันดับ',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:tw[0],fill:C.primary}),
+    wCell(wText('กลยุทธ์',{b:1,color:'FFFFFF',sz:26},{after:0}),{w:tw[1],fill:C.primary}),
+    wCell(wText('ที่มา',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:tw[2],fill:C.primary}),
+    wCell(wText('คะแนน',{b:1,color:'FFFFFF',sz:26},{align:'center',after:0}),{w:tw[3],fill:C.primary})
+  ]];
+  top5.forEach((c,i)=>{
+    t5rows.push([
+      wCell(wText(String(i+1),{b:1,color:C.primary,sz:30},{align:'center',after:0}),{w:tw[0],fill:i%2?C.fillSoft:null}),
+      wCell(wText(c.name,{b:1,sz:27},{after:20,keepNext:1})+wText(c.body,{sz:26},{after:20})+wText('เหตุผล: '+c.why,{i:1,color:C.gray,sz:22},{after:0}),{w:tw[1],fill:i%2?C.fillSoft:null}),
+      wCell(wText('วิธีที่ '+c.m,{sz:26},{align:'center',after:0}),{w:tw[2],fill:i%2?C.fillSoft:null}),
+      wCell(wText(c.score.toFixed(1),{b:1,color:C.primary,sz:28},{align:'center',after:0}),{w:tw[3],fill:i%2?C.fillSoft:null})
+    ]);
+  });
+  b+=wTable(t5rows,tw);
+  b+=wText('กลยุทธ์อันดับรองลงมา (อันดับ 6–10) สามารถดูได้จากหน้าจอแท็บ "สรุปรวม · Top 5" ของเครื่องมือ ซึ่งแสดงกลยุทธ์ครบทั้ง '+agg.list.length+' ข้อพร้อมคะแนน',{i:1,color:C.gray,sz:24},{after:120});
+
+  b+=wText('เอกสารนี้สร้างโดยเครื่องมือ SWOT → Strategy Generator (ผลลัพธ์เป็นข้อเสนอเบื้องต้น ควรทบทวนโดยทีมนำของหน่วยงานก่อนบรรจุในแผนกลยุทธ์)',{i:1,color:C.gray,sz:24},{before:200,after:0});
+
+  const sect='<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1418" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr>';
+  return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+b+sect+'</w:body></w:document>';
+}
+
+/* ---------- minimal ZIP (stored) ---------- */
+const CRC_TABLE=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(u8){let c=0xFFFFFFFF;for(let i=0;i<u8.length;i++)c=CRC_TABLE[(c^u8[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function zipStore(files){
+  const enc=new TextEncoder(); const parts=[]; const central=[]; let offset=0;
+  for(const f of files){
+    const nameB=enc.encode(f.name), data=(typeof f.data==='string')?enc.encode(f.data):f.data;
+    const crc=crc32(data), sz=data.length;
+    const lh=new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true); lh.setUint16(4,20,true); lh.setUint16(6,0x0800,true); lh.setUint16(8,0,true);
+    lh.setUint16(10,0,true); lh.setUint16(12,0,true); lh.setUint32(14,crc,true);
+    lh.setUint32(18,sz,true); lh.setUint32(22,sz,true); lh.setUint16(26,nameB.length,true); lh.setUint16(28,0,true);
+    parts.push(new Uint8Array(lh.buffer),nameB,data);
+    const ch=new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true); ch.setUint16(4,20,true); ch.setUint16(6,20,true); ch.setUint16(8,0x0800,true);
+    ch.setUint16(10,0,true); ch.setUint16(12,0,true); ch.setUint16(14,0,true); ch.setUint32(16,crc,true);
+    ch.setUint32(20,sz,true); ch.setUint32(24,sz,true); ch.setUint16(28,nameB.length,true);
+    central.push({hdr:new Uint8Array(ch.buffer),name:nameB,offset});
+    offset+=30+nameB.length+sz;
+  }
+  const cdParts=[]; let cdSize=0;
+  for(const c of central){
+    const dv=new DataView(c.hdr.buffer); dv.setUint32(42,c.offset,true);
+    cdParts.push(c.hdr,c.name); cdSize+=46+c.name.length;
+  }
+  const eo=new DataView(new ArrayBuffer(22));
+  eo.setUint32(0,0x06054b50,true); eo.setUint16(8,files.length,true); eo.setUint16(10,files.length,true);
+  eo.setUint32(12,cdSize,true); eo.setUint32(16,offset,true);
+  const total=[...parts,...cdParts,new Uint8Array(eo.buffer)];
+  const len=total.reduce((a,p)=>a+p.length,0); const out=new Uint8Array(len);
+  let pos=0; for(const p of total){ out.set(p,pos); pos+=p.length }
+  return out;
+}
+
+function buildDocxBytes(){
+  const CT='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'+
+    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'+
+    '<Default Extension="xml" ContentType="application/xml"/>'+
+    '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'+
+    '</Types>';
+  const RELS='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
+    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>'+
+    '</Relationships>';
+  return zipStore([
+    {name:'[Content_Types].xml',data:CT},
+    {name:'_rels/.rels',data:RELS},
+    {name:'word/document.xml',data:buildDocXml()}
+  ]);
+}
+window.__buildDocxBytes=buildDocxBytes;
+
+document.getElementById('btnWord').addEventListener('click',()=>{
+  try{
+    const bytes=buildDocxBytes();
+    const blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    const d=new Date(), pad=n=>String(n).padStart(2,'0');
+    const fname='SWOT_HR_'+unitId+'_'+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'.docx';
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fname;
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove()},800);
+  }catch(err){ alert('ไม่สามารถสร้างไฟล์ Word ได้: '+err.message) }
+});
+
+
+populateUnitSel();
+renderAll();
+</script>
+</body>
+</html>
