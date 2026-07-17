@@ -1186,6 +1186,7 @@ const PROB_BUSINESSES = [
 // ===================== config =====================
 var LINE_ID = "narongwits";
 var LINE_URL = "https://line.me/ti/p/~" + LINE_ID;
+var CHECKOUT_URL = "/.netlify/functions/create-checkout-session";
 function lvlOf(title){
   if(title.indexOf("ผู้จัดการ")>=0 || title.indexOf("ผู้อำนวยการ")>=0) return ["l1","L1","บริหาร/จัดการ"];
   if(title.indexOf("หัวหน้า")>=0 || title.indexOf("ผู้ตรวจการ")>=0 || title.indexOf("Superintendent")>=0 || title.indexOf("อาวุโส")>=0) return ["l2","L2","หัวหน้างาน"];
@@ -1267,8 +1268,8 @@ function renderGrid(){
     return '<div class="card">'
       +'<div class="meta"><span class="sku">'+x.sku+'</span><span class="lvltag '+x.lvlCls+'">'+x.lvlLabel+'</span></div>'
       +'<h3>'+esc(x.typeName)+' · '+esc(x.title)+'</h3>'
-      +'<div class="buy"><span class="price" style="font-size:13.5px;color:var(--muted)">ไฟล์ '+esc(x.ftype)+' แก้ไขได้</span>'
-      +'<a class="addbtn" href="'+LINE_URL+'" target="_blank" rel="noopener">สนใจไฟล์นี้ · ทัก LINE</a></div>'
+      +'<div class="buy"><span class="price">120 บาท <small>· '+esc(x.ftype)+'</small></span>'
+      +'<button class="addbtn" type="button" data-buy-sku="'+esc(x.sku)+'">ซื้อไฟล์นี้</button></div>'
     +'</div>';
   }).join("");
 }
@@ -1280,6 +1281,26 @@ function renderSoon(){
 
 // ===================== ui glue =====================
 document.addEventListener("click",function(e){
+  var buy=e.target.closest("[data-buy-sku]");
+  if(buy){
+    var item=BY_SKU[buy.getAttribute("data-buy-sku")];
+    if(!item || buy.disabled) return;
+    var oldText=buy.textContent;
+    buy.disabled=true; buy.textContent="กำลังเปิดหน้าชำระเงิน…";
+    fetch(CHECKOUT_URL,{
+      method:"POST",
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify({sku:item.sku,title:item.typeName+" · "+item.title})
+    }).then(function(res){return res.json().then(function(data){return {ok:res.ok,data:data};});})
+      .then(function(result){
+        if(!result.ok || !result.data.url) throw new Error(result.data.error || "เปิดหน้าชำระเงินไม่สำเร็จ");
+        window.location.href=result.data.url;
+      }).catch(function(err){
+        buy.disabled=false; buy.textContent=oldText;
+        alert(err.message+"\nกรุณาทัก LINE "+LINE_ID+" หากยังทำรายการไม่ได้");
+      });
+    return;
+  }
   var t=e.target.closest("[data-biz]"); if(t){ state.type=t.getAttribute("data-type"); state.biz=t.getAttribute("data-biz"); renderSideNav(); renderGrid(); var cat=document.getElementById("catalog"); if(cat.scrollIntoView) cat.scrollIntoView({behavior:"smooth",block:"start"}); return; }
   t=e.target.closest("[data-lvl]"); if(t){ state.lvl=t.getAttribute("data-lvl"); renderLvl(); renderGrid(); return; }
 });
